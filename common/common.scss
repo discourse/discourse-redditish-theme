@@ -11,10 +11,10 @@
   border-radius: 0.5em;
   border: 1px solid var(--redditish-border-color);
   background: var(--secondary);
-  box-shadow: $box-shadow-default;
+  box-shadow: var(--box-shadow-default);
   .discourse-no-touch & {
     &:hover {
-      box-shadow: $box-shadow-hover;
+      box-shadow: var(--box-shadow-hover);
     }
   }
 }

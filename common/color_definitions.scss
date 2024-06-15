@@ -37,4 +37,6 @@ $box-shadow-hover: 0px 1px 2px 0px rgba(21, 21, 21, 0.08);
   --redditish-bg-color: #{$redditish-background-color};
   --redditish-border-color: #{$redditish-border-color};
   --redditish-border-highlight-color: #{$redditish-border-highlight-color};
+  --box-shadow-default: #{$box-shadow-default};
+  --box-shadow-hover: #{$box-shadow-hover};
 }
