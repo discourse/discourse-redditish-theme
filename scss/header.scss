@@ -2,13 +2,6 @@
   box-shadow: none;
   border-bottom: 1px solid var(--redditish-border-color);
 
-  &:hover {
-    border-bottom: 1px solid var(--redditish-border-highlight-color);
-  }
-
-  &:has(.menu-panel:hover) {
-    border-bottom: 1px solid var(--redditish-border-highlight-color);
-  }
 }
 
 .menu-panel {
