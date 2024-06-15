@@ -4,6 +4,12 @@
   --d-input-border-radius: 4px;
   --topic-body-width: 900px;
 }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
 
 @mixin custom-card {
   box-sizing: border-box;
