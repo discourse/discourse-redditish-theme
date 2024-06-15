@@ -2,7 +2,7 @@
   "about_url": null,
   "license_url": null,
   "assets": {},
-  "name": "redditish",
+  "name": "HealthPathways Full width",
   "modifiers": {
     "serialize_topic_excerpts": true,
     "topic_thumbnail_sizes": [[620, 500]]
