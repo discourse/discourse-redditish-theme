@@ -25,6 +25,14 @@ $redditish-border-highlight-color: $primary-200 !default;
   $redditish-border-highlight-color: $redditish-border-highlight-color-dark;
 }
 
+/* Overrids for HP colours */
+$redditish-border-color: #CDD7E1;
+
+$box-shadow-default: 0px 2px 4px 0px rgba(21, 21, 21, 0.08);
+$box-shadow-hover: 0px 1px 2px 0px rgba(21, 21, 21, 0.08);
+
+
+
 :root {
   --redditish-bg-color: #{$redditish-background-color};
   --redditish-border-color: #{$redditish-border-color};
