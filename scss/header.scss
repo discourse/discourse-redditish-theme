@@ -58,7 +58,7 @@
 }
 
 .header-sidebar-toggle {
-  max-width: 50px;
+  max-width: 50px !important; 
 button .d-icon {
   font-size: var(--font-up-2);
   color: var(--primary-medium);
