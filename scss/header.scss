@@ -54,7 +54,7 @@
 }
 
 .has-sidebar-page .d-header>.wrap .contents {
-  grid-template-columns: 50px calc(var(--d-sidebar-width)) minmax(0, calc(var(--d-max-width))) 1fr minmax(0, calc(var(--d-sidebar-width) + 50px)) !important;
+  grid-template-columns: 50px calc(var(--d-sidebar-width) + 1fr) minmax(0, calc(var(--d-max-width))) 1fr minmax(0, calc(var(--d-sidebar-width) + 50px)) !important;
   gap: 1em;
 }
 
