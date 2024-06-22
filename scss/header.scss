@@ -59,8 +59,7 @@
 }
 
 .floating-search-input {
-  width: 75%;
-  max-width: var(--d-max-width);
+  width: minmax(75%, var(--d-max-width));  
 }
 .d-header-icons .active .icon {
   border-color: transparent !important;
