@@ -43,16 +43,24 @@
   }
 }
 
+.title-voting {
+  padding-right: .75em;
+  padding-left: .75em;
+  width: 6em;
+  max-width: 10%;
+  box-sizing: border-box;
+  float: left;
+}
+
 .vote-count-wrapper {
   font-size: var(--font-up-2);
   height: 40px;
-  margin-left: 0.35em;
   width: 100%;
 }
 
 .vote-button {
   width: 100%;
-  margin-left: .35em;
+  margin: 0;
 }
 
 .signup-cta {
