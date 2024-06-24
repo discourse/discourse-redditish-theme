@@ -2,3 +2,7 @@
   height: 100%;
   @include custom-card;
 }
+
+.badge-wrapper.box span.badge-category-bg {
+  border-radius: 4px;
+}
