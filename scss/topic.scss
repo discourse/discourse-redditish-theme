@@ -1,5 +1,5 @@
 #topic-title {
-  background: var(--redditish-border-color);
+  background: var(--redditish-bg-color);
   margin: 0;
   border-radius: 4px 4px 0 0;
   @include custom-topic-width;
@@ -10,7 +10,7 @@
     font-size: var(--font-up-4);
 
     a {
-      color: var(--secondary);
+      color: var(--primary);
     }
 
     font-weight: normal;
@@ -21,7 +21,7 @@
   .discourse-tag.simple,
   .discourse-tag.simple:visited,
   .discourse-tag.simple:hover {
-    color: var(--secondary);
+    color: var(--primary);
   }
 
   a.edit-topic {
