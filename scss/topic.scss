@@ -1,8 +1,9 @@
 #topic-title {
   background: var(--secondary);
   margin: 0;
-  border-radius: 4px 4px 0 0;
+  border-radius: 0.5em 0.5em 0 0;
   border: 1px solid var(--redditish-border-color);
+  border-bottom: none !important;
   box-shadow: 0px 1px 2px 0px rgba(21, 21, 21, .08);
   @include custom-topic-width;
   box-sizing: border-box;
@@ -210,7 +211,7 @@
 
 .posts-wrapper {
   @include custom-card;
-  border-radius: 0 0 4px 4px;
+  border-radius: 0 0 0.5em 0.5em;
   border-top: none !important;
   padding: 1em 2em 2em;
 }
