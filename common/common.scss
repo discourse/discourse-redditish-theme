@@ -127,6 +127,7 @@ body {
 .btn {
   &:not(.btn-icon):not([class*="popup-menu-btn"]) {
     padding: 0.5em 1em;
+    margin: 0.1em;
   }
 }
 
