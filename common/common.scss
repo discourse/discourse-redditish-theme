@@ -192,3 +192,11 @@ body {
 html.composer-open #main-outlet {
   padding-bottom: var(--composer-height);
 }
+
+.admin-customize .themes-list-container {
+  border-radius: 4px !important;
+}
+
+.alert {
+  border-radius: 4px !important;
+}
