@@ -81,6 +81,11 @@
   }
 }
 
+.topic-status-info,
+.topic-timer-info {
+  border-top: none !important;
+}
+
 .names span.first {
   font-weight: normal;
 }
