@@ -163,6 +163,10 @@ body {
   padding: 0 var(--d-sidebar-row-horizontal-padding) !important; // overrides button specificity
 }
 
+.sidebar-section-wrapper.sidebar-section[data-section-name="categories"] {
+  display: none;
+}
+
 .add-to-sidebar {
   .d-icon-star {
     color: var(--tertiary);
