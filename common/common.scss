@@ -167,6 +167,29 @@ body {
   display: none;
 }
 
+.sidebar-section-wrapper.sidebar-section[data-section-name="community"] {
+  order: 1; 
+}
+.sidebar-section-wrapper.sidebar-section[data-section-name="tags"] {
+  order: 2; 
+}
+.sidebar-section-wrapper.sidebar-section[data-section-name="global"] {
+  order: 3; 
+}
+.sidebar-section-wrapper.sidebar-section[data-section-name="australia"] {
+  order: 4; 
+}
+.sidebar-section-wrapper.sidebar-section[data-section-name="england"] {
+  order: 5; 
+}
+.sidebar-section-wrapper.sidebar-section[data-section-name="new-zealand"] {
+  order: 6; 
+}
+.sidebar-section-wrapper.sidebar-section[data-section-name="wales"] {
+  order: 7; 
+}
+
+
 .add-to-sidebar {
   .d-icon-star {
     color: var(--tertiary);
