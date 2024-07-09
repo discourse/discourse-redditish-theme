@@ -167,26 +167,19 @@ body {
   display: none;
 }
 
-.sidebar-section-wrapper.sidebar-section[data-section-name="community"] {
-  order: 1 !important; 
-}
-.sidebar-section-wrapper.sidebar-section[data-section-name="tags"] {
-  order: 2 !important; 
-}
-.sidebar-section-wrapper.sidebar-section[data-section-name="global"] {
-  order: 3 !important; 
-}
-.sidebar-section-wrapper.sidebar-section[data-section-name="australia"] {
-  order: 4 !important; 
-}
-.sidebar-section-wrapper.sidebar-section[data-section-name="england"] {
-  order: 5 !important; 
-}
-.sidebar-section-wrapper.sidebar-section[data-section-name="new-zealand"] {
-  order: 6 !important; 
-}
-.sidebar-section-wrapper.sidebar-section[data-section-name="wales"] {
-  order: 7 !important; 
+.sidebar-wrapper {
+  .sidebar-custom-sections {
+    display: contents;
+  }
+  [data-section-name="community"] {
+    order: -3;
+  }
+  [data-section-name="global"] {
+    order: -2;
+  }
+  [data-section-name="australia"] {
+    order: -1;
+  }
 }
 
 
