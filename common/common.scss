@@ -166,18 +166,30 @@ body {
 .sidebar-section-wrapper.sidebar-section[data-section-name="categories"] {
   display: none;
 }
+.sidebar-section-wrapper.sidebar-section[data-section-name="tags"] {
+  display: none;
+}
 
 .sidebar-wrapper {
   .sidebar-custom-sections {
     display: contents;
   }
   [data-section-name="community"] {
-    order: -3;
+    order: -6;
   }
   [data-section-name="global"] {
-    order: -2;
+    order: -5;
   }
   [data-section-name="australia"] {
+    order: -4;
+  }
+  [data-section-name="england"] {
+    order: -3;
+  }
+  [data-section-name="new-zealand"] {
+    order: -2;
+  }
+  [data-section-name="wales"] {
     order: -1;
   }
 }
