@@ -48,6 +48,14 @@ body {
 @import "topic-list";
 @import "user";
 
+.sidebar-section-link-wrapper {
+  .sidebar-section-link {
+     &[data-link-name="docs"] {
+     display: none;
+     }
+   }
+}
+
 body {
   background: var(--redditish-bg-color);
   background-image: none !important; /* overrides category bg because we use it for banners instead */
