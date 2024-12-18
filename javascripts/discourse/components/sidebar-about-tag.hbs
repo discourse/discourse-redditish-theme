@@ -16,7 +16,7 @@
             <p>
 
               {{html-safe this.linkedDescription}}
-              <a {{on "click" this.toggleInfo}}>
+              <a {{on "click" this.toggleInfo}} href>
                 {{theme-i18n "about_tag_admin_tip_description_link"}}</a>
             </p>
           {{/if}}
@@ -25,7 +25,7 @@
           <div class="custom-right-sidebar_controls">
             {{#if this.currentUser.can_create_topic}}
               <DButton
-                @class="btn-default"
+                class="btn-default"
                 @id="custom-create-topic"
                 @action={{action "customCreateTopic"}}
                 @icon="plus"

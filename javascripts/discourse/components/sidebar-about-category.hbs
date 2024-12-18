@@ -20,7 +20,7 @@
         >
           {{#if this.currentUser.can_create_topic}}
             <DButton
-              @class="btn-default"
+              class="btn-default"
               @id="custom-create-topic"
               @action={{action "customCreateTopic"}}
               @icon="plus"
@@ -58,7 +58,7 @@
               {{#each this.site.category_top_tags as |tag|}}
                 <a
                   href="/tags/c/{{this.category.slug}}/{{tag}}"
-                  data-tag-name="{{tag}}"
+                  data-tag-name={{tag}}
                   class="discourse-tag simple"
                 >
                   {{tag}}

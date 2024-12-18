@@ -10,7 +10,7 @@
     <div class="custom-right-sidebar_recent-topics-wrappper">
       <div class="custom-topic-layout">
         <div class="custom-topic-layout_meta">
-          {{#unless hideCategory}}
+          {{#unless this.hideCategory}}
             {{#unless topic.isPinnedUncategorized}}
               {{category-link topic.category}}
               <span class="bullet-separator">&bull;</span>
@@ -19,9 +19,9 @@
           <span class="custom-topic-layout_meta-posted">
             <span class="custom-topic-layout_meta-posted-by">Posted by</span>
             <a
-              data-user-card={{topic.posters.0.user.username}}
-              href="/u/{{topic.posters.0.user.username}}"
-            >@{{topic.posters.0.user.username}}</a>
+              data-user-card={{get topic.posters "0.user.username"}}
+              href="/u/{{get topic.posters '0.user.username'}}"
+            >@{{get topic.posters "0.user.username"}}</a>
             {{format-date
               topic.createdAt
               format="medium"
@@ -37,15 +37,15 @@
         </h2>
 
         <div class="link-bottom-line">
-          {{discourse-tags topic mode="list" tagsForUser=tagsForUser}}
+          {{discourse-tags topic mode="list" tagsForUser=this.tagsForUser}}
         </div>
 
         {{#if topic.thumbnails}}
           <div class="custom-topic-layout_image">
             <img
-              height={{topic.thumbnails.0.height}}
-              width={{topic.thumbnails.0.width}}
-              src={{topic.thumbnails.0.url}}
+              height={{get topic.thumbnails "0.height"}}
+              width={{get topic.thumbnails "0.width"}}
+              src={{get topic.thumbnails "0.url"}}
             />
           </div>
         {{/if}}

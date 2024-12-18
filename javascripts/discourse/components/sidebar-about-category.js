@@ -1,10 +1,10 @@
 import Component from "@glimmer/component";
-import { inject as service } from "@ember/service";
-import { action } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
+import { action } from "@ember/object";
+import { service } from "@ember/service";
 import { NotificationLevels } from "discourse/lib/notification-levels";
-import { bind } from "discourse-common/utils/decorators";
 import Composer from "discourse/models/composer";
+import { bind } from "discourse-common/utils/decorators";
 import I18n from "I18n";
 
 export default class SidebarAboutCategory extends Component {
@@ -12,6 +12,7 @@ export default class SidebarAboutCategory extends Component {
   @service router;
   @service currentUser;
   @service composer;
+
   @tracked topTags = this.site.category_top_tags;
   @tracked categoryNotificationLevel;
 

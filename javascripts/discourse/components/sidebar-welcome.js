@@ -1,6 +1,6 @@
 import Component from "@glimmer/component";
-import { inject as service } from "@ember/service";
 import { action } from "@ember/object";
+import { service } from "@ember/service";
 import Composer from "discourse/models/composer";
 
 export default class SidebarWelcome extends Component {

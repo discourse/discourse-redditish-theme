@@ -1,6 +1,6 @@
-import { withPluginApi } from "discourse/lib/plugin-api";
-import { wantsNewWindow } from "discourse/lib/intercept-click";
 import ShareTopicModal from "discourse/components/modal/share-topic";
+import { wantsNewWindow } from "discourse/lib/intercept-click";
+import { withPluginApi } from "discourse/lib/plugin-api";
 
 export default {
   name: "redditish-customize-topic-list-item",

@@ -6,7 +6,7 @@
     </p>
     {{#if (and this.currentUser this.currentUser.can_create_topic)}}
       <DButton
-        @class="btn-primary"
+        class="btn-primary"
         @id="custom-create-topic"
         @action={{action "customCreateTopic"}}
         @label="topic.create"

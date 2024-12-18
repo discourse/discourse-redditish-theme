@@ -1,7 +1,7 @@
 import Component from "@glimmer/component";
 import { action } from "@ember/object";
+import { service } from "@ember/service";
 import Composer from "discourse/models/composer";
-import { inject as service } from "@ember/service";
 
 export default class FakeInputCreate extends Component {
   @service composer;

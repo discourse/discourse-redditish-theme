@@ -1,16 +1,17 @@
 import Component from "@glimmer/component";
-import { inject as service } from "@ember/service";
-import { action } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
+import { action } from "@ember/object";
+import { service } from "@ember/service";
 import Composer from "discourse/models/composer";
-import I18n from "I18n";
 import { getOwner } from "discourse-common/lib/get-owner";
+import I18n from "I18n";
 
 export default class SidebarAboutTag extends Component {
   @service store;
   @service router;
   @service currentUser;
   @service composer;
+
   @tracked tag = null;
   @tracked tagNotification = null;
 

@@ -1,13 +1,14 @@
 import Component from "@glimmer/component";
-import { inject as service } from "@ember/service";
-import { action } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
+import { action } from "@ember/object";
+import { service } from "@ember/service";
 
 export default class LatestTopicsSidebar extends Component {
   @service router;
   @service store;
   @service siteSettings;
   @service currentUser;
+
   @tracked latestTopics = null;
 
   @action
