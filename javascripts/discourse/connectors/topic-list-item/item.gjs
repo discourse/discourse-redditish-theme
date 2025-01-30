@@ -1,5 +1,5 @@
 import Component from "@glimmer/component";
-import { hash } from "@ember/helper";
+import { get, hash } from "@ember/helper";
 import { on } from "@ember/modifier";
 import { action } from "@ember/object";
 import { service } from "@ember/service";
@@ -87,9 +87,9 @@ export default class Item extends Component {
           </span>
 
           <a
-            data-user-card={{@outletArgs.topic.posters.0.user.username}}
-            href="/u/{{@outletArgs.topic.posters.0.user.username}}"
-          >@{{@outletArgs.topic.posters.0.user.username}}</a>
+            data-user-card={{get @outletArgs "topic.posters.0.user.username"}}
+            href="/u/{{get @outletArgs 'topic.posters.0.user.username'}}"
+          >@{{get @outletArgs "topic.posters.0.user.username"}}</a>
 
           {{formatDate
             @outletArgs.topic.createdAt
@@ -142,9 +142,9 @@ export default class Item extends Component {
       {{#if @outletArgs.topic.thumbnails}}
         <div class="custom-topic-layout_image">
           <img
-            height={{@outletArgs.topic.thumbnails.0.height}}
-            width={{@outletArgs.topic.thumbnails.0.width}}
-            src={{@outletArgs.topic.thumbnails.0.url}}
+            height={{get @outletArgs "topic.thumbnails.0.height"}}
+            width={{get @outletArgs "topic.thumbnails.0.width"}}
+            src={{get @outletArgs "topic.thumbnails.0.url"}}
           />
         </div>
       {{/if}}
