@@ -68,6 +68,7 @@ export default class Item extends Component {
   }
 
   <template>
+    {{! template-lint-disable no-invalid-interactive }}
     <div {{on "click" this.openTopic}} class="custom-topic-layout">
       <div class="custom-topic-layout_meta">
         {{#unless @outletArgs.hideCategory}}
