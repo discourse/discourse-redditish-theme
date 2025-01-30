@@ -49,13 +49,12 @@ export default class Item extends Component {
       return;
     }
 
-    const { topic } = this.args.outletArgs;
+    const { navigateToTopic, topic } = this.args.outletArgs;
 
     if (wantsNewWindow(event)) {
       window.open(topic.lastUnreadUrl, "_blank");
     } else {
-      this.historyStore.set("lastTopicIdViewed", topic.id);
-      DiscourseURL.routeTo(topic.lastUnreadUrl || topic.url);
+      navigateToTopic(topic.lastUnreadUrl);
     }
   }
 
