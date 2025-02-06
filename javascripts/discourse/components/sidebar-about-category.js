@@ -2,10 +2,10 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
 import { service } from "@ember/service";
+import { bind } from "discourse/lib/decorators";
 import { NotificationLevels } from "discourse/lib/notification-levels";
 import Composer from "discourse/models/composer";
-import { bind } from "discourse-common/utils/decorators";
-import I18n from "I18n";
+import { i18n } from "discourse-i18n";
 
 export default class SidebarAboutCategory extends Component {
   @service site;
@@ -29,7 +29,7 @@ export default class SidebarAboutCategory extends Component {
   }
 
   get linkedDescription() {
-    return I18n.t(themePrefix("about_category_admin_tip_description"), {
+    return i18n(themePrefix("about_category_admin_tip_description"), {
       topicUrl: this.category.topic_url,
     });
   }
