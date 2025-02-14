@@ -1,7 +1,7 @@
 import ShareTopicModal from "discourse/components/modal/share-topic";
+import { withSilencedDeprecations } from "discourse/lib/deprecated";
 import { wantsNewWindow } from "discourse/lib/intercept-click";
 import { withPluginApi } from "discourse/lib/plugin-api";
-import { withSilencedDeprecations } from "discourse-common/lib/deprecated";
 
 export default {
   name: "redditish-customize-topic-list-item",
