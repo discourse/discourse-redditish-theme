@@ -2,9 +2,9 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
 import { service } from "@ember/service";
+import { getOwner } from "discourse/lib/get-owner";
 import Composer from "discourse/models/composer";
-import { getOwner } from "discourse-common/lib/get-owner";
-import I18n from "I18n";
+import { i18n } from "discourse-i18n";
 
 export default class SidebarAboutTag extends Component {
   @service store;
@@ -24,7 +24,7 @@ export default class SidebarAboutTag extends Component {
   }
 
   get linkedDescription() {
-    return I18n.t(themePrefix("about_tag_admin_tip_description"), {
+    return i18n(themePrefix("about_tag_admin_tip_description"), {
       topicUrl: "test",
     });
   }
