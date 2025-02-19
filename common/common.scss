@@ -118,13 +118,23 @@ body {
 .btn-default,
 .btn-primary,
 .btn {
-  &:not(.btn-icon):not([class*="popup-menu-btn"]) {
+  &:not(.btn-icon):not(
+      [class*="popup-menu-btn"],
+      [class*="post-action-menu__"],
+      [class*="topic-map__"]
+    ) {
     padding: 0.5em 1em;
   }
 }
 
 .btn[class*="popup-menu-btn"] {
   border: none;
+}
+
+.dropdown-menu {
+  .btn {
+    border-radius: 0;
+  }
 }
 
 #main-outlet {

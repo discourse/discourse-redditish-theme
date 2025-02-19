@@ -8,5 +8,8 @@
       placeholder={{theme-i18n "post_input_placeholder"}}
       {{on "click" this.customCreateTopic}}
     />
+    {{#if this.hasDrafts}}
+      <TopicDraftsDropdown />
+    {{/if}}
   </div>
 {{/if}}

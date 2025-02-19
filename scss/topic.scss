@@ -81,6 +81,8 @@
 }
 
 .timeline-footer-controls,
+.timeline-controls,
+.topic-notifications-button,
 .topic-admin-menu-button {
   > button,
   .topic-notifications-button summary {
@@ -191,8 +193,10 @@
   padding: 1em 2em 2em;
 }
 
-.topic-map {
-  border-radius: 4px;
+.topic-map.--bottom {
+  margin-top: 1em;
+  max-width: unset;
+  @include custom-card;
 }
 
 .map:first-of-type .buttons .btn {
