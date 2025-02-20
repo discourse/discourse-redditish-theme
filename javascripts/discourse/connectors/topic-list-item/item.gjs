@@ -53,7 +53,7 @@ export default class Item extends Component {
     if (wantsNewWindow(event)) {
       window.open(topic.lastUnreadUrl, "_blank");
     } else {
-      navigateToTopic(topic.lastUnreadUrl);
+      navigateToTopic(topic, topic.lastUnreadUrl);
     }
   }
 
