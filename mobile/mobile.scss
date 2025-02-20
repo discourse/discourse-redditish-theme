@@ -197,6 +197,9 @@ html:not(.footer-nav-visible) #topic-progress-wrapper {
       font-size: var(--font-up-1);
     }
   }
+  &.closed {
+    border: none;
+  }
 }
 
 .alert.alert-info.clickable {
