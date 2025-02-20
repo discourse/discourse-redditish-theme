@@ -5,43 +5,33 @@
     {{did-insert this.getTagNotificationLevel}}
     {{did-update this.getTagNotificationLevel this.tagId}}
   >
-    {{#if (or this.tag.description this.currentUser)}}
-      <div class="custom-right-sidebar_tag-about">
-        {{#if this.tag.description}}
-          <h3>{{theme-i18n "about_tag"}}</h3>
-          <p>{{html-safe this.tag.description}}</p>
-        {{else}}
-          {{#if this.currentUser.admin}}
-            <h3>{{theme-i18n "about_admin_tip_headline"}}</h3>
-            <p>
-
-              {{html-safe this.linkedDescription}}
-              <a {{on "click" this.toggleInfo}} href>
-                {{theme-i18n "about_tag_admin_tip_description_link"}}</a>
-            </p>
+    {{#if this.shouldShow}}
+      {{#if (or this.tag.description this.currentUser)}}
+        <div class="custom-right-sidebar_tag-about">
+          {{#if this.tag.description}}
+            <h3>{{theme-i18n "about_tag"}}</h3>
+            <p>{{html-safe this.tag.description}}</p>
           {{/if}}
-        {{/if}}
-        {{#if this.currentUser}}
-          <div class="custom-right-sidebar_controls">
-            {{#if this.currentUser.can_create_topic}}
-              <DButton
-                class="btn-default"
-                @id="custom-create-topic"
-                @action={{action "customCreateTopic"}}
-                @icon="plus"
-                @translatedLabel={{i18n "topic.create"}}
+          {{#if this.currentUser}}
+            <div class="custom-right-sidebar_controls">
+              {{#if this.currentUser.can_create_topic}}
+                <DButton
+                  class="btn-default"
+                  @id="custom-create-topic"
+                  @action={{action "customCreateTopic"}}
+                  @icon="plus"
+                  @translatedLabel={{i18n "topic.create"}}
+                />
+              {{/if}}
+              <TagNotificationsButton
+                @onChange={{this.changeTagNotificationLevel}}
+                @value={{this.tagNotification.notification_level}}
               />
-            {{/if}}
-
-            <TagNotificationsButton
-              @onChange={{this.changeTagNotificationLevel}}
-              @value={{this.tagNotification.notification_level}}
-            />
-
-            <AddToSidebar @tag={{this.tag}} @category={{this.category}} />
-          </div>
-        {{/if}}
-      </div>
+              <AddToSidebar @tag={{this.tag}} @category={{this.category}} />
+            </div>
+          {{/if}}
+        </div>
+      {{/if}}
     {{/if}}
   </div>
 {{/if}}

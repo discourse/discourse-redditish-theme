@@ -15,6 +15,10 @@ export default class SidebarAboutTag extends Component {
   @tracked tag = null;
   @tracked tagNotification = null;
 
+  get shouldShow() {
+    return this.tag && !this.category;
+  }
+
   get tagId() {
     return this.router.currentRoute.params?.tag_id;
   }

@@ -10,7 +10,8 @@ body.category,
 
     #create-topic,
     .select-kit.single-select.dropdown-select-box.notifications-button,
-    .topic-drafts-menu-trigger {
+    .topic-drafts-menu-trigger,
+    .notifications-tracking-trigger {
       display: none;
     }
   }
@@ -34,10 +35,6 @@ body.category,
   @include custom-card;
   text-align: center;
   padding: 2.5em 3em 2em;
-}
-
-#header-list-area {
-  display: none;
 }
 
 .category-heading {

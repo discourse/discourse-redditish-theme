@@ -70,6 +70,7 @@
 
 .timeline-container.timeline-docked-bottom .timeline-footer-controls {
   opacity: 1;
+  pointer-events: all; // overrides core
 }
 
 .timeline-container .topic-timeline .timeline-scrollarea {
@@ -216,10 +217,10 @@ html:not(.footer-nav-visible) #topic-progress-wrapper {
 }
 
 .container.posts {
-  #topic-progress {
+  #topic-progress-wrapper #topic-progress {
     border: 1px solid var(--primary-400);
     .nums {
-      top: 0.65em;
+      top: 0.1em;
     }
   }
   #topic-progress-wrapper {
