@@ -26,7 +26,7 @@ export default class AddToSidebar extends Component {
 
     return (
       (category &&
-        this.currentUser.sidebar_category_ids.includes(category.id)) ||
+        this.currentUser.sidebar_category_ids?.includes(category.id)) ||
       (tag &&
         this.currentUser.sidebar_tags.some(
           (savedTag) => savedTag.name === tag.name
