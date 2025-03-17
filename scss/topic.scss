@@ -2,9 +2,10 @@
   background: var(--primary);
   margin: 0;
   border-radius: 4px 4px 0 0;
-  @include custom-topic-width;
   box-sizing: border-box;
   padding: 1em 2em;
+
+  @include custom-topic-width;
 
   h1 {
     font-size: var(--font-up-4);
@@ -12,7 +13,6 @@
     a {
       color: var(--secondary);
     }
-
     font-weight: normal;
     margin-bottom: 0.25em;
   }
@@ -42,8 +42,9 @@
 }
 
 .signup-cta {
-  @include custom-topic-width;
   @include custom-card;
+  @include custom-topic-width;
+
   .buttons {
     margin-bottom: 0;
   }
@@ -87,11 +88,13 @@
 .topic-admin-menu-button {
   > button,
   .topic-notifications-button summary {
-    @include custom-card;
     height: 2.6em; // consistency hack
-    padding-top: 0.6em;
-    padding-bottom: 0.65em;
     font-size: var(--font-down-1);
+
+    @include custom-card {
+      padding-top: 0.6em;
+      padding-bottom: 0.65em;
+    }
   }
 }
 
@@ -100,8 +103,9 @@
 }
 
 #topic-footer-buttons {
-  @include custom-topic-width;
   margin-bottom: 0;
+
+  @include custom-topic-width;
 
   .btn-primary {
     float: none;
@@ -116,6 +120,7 @@
       .btn-default {
         background-color: var(--secondary);
         border: 1px solid var(--primary-low-mid);
+
         .discourse-no-touch & {
           &:hover {
             background-color: var(--primary-medium);
@@ -158,6 +163,7 @@
   .now-date {
     color: var(--primary-700);
   }
+
   timeline-replies {
     font-weight: normal;
   }
@@ -182,21 +188,42 @@
 
 .container.posts {
   grid-template-columns: 1fr 8em;
+
   @media screen and (max-width: 924px) {
     grid-template-columns: 1fr;
+  }
+
+  #topic-progress-wrapper #topic-progress {
+    border: 1px solid var(--primary-400);
+
+    .nums {
+      top: 0.1em;
+    }
+  }
+
+  #topic-progress-wrapper {
+    --d-border-radius: 100px;
+
+    .topic-admin-menu-button .toggle-admin-menu {
+      border-right: none;
+      border-radius: var(--d-border-radius) 0 0 var(--d-border-radius);
+      height: 100%;
+    }
   }
 }
 
 .posts-wrapper {
-  @include custom-card;
-  border-radius: 0 0 4px 4px;
-  border-top: none !important;
-  padding: 1em 2em 2em;
+  @include custom-card {
+    border-radius: 0 0 4px 4px;
+    border-top: none !important;
+    padding: 1em 2em 2em;
+  }
 }
 
 .topic-map.--bottom {
   margin-top: 1em;
   max-width: unset;
+
   @include custom-card;
 }
 
@@ -214,22 +241,4 @@ h3.suggested-topics-message {
 
 html:not(.footer-nav-visible) #topic-progress-wrapper {
   bottom: calc(env(safe-area-inset-bottom) + 1em);
-}
-
-.container.posts {
-  #topic-progress-wrapper #topic-progress {
-    border: 1px solid var(--primary-400);
-    .nums {
-      top: 0.1em;
-    }
-  }
-  #topic-progress-wrapper {
-    --d-border-radius: 100px;
-
-    .topic-admin-menu-button .toggle-admin-menu {
-      border-right: none;
-      border-radius: var(--d-border-radius) 0 0 var(--d-border-radius);
-      height: 100%;
-    }
-  }
 }

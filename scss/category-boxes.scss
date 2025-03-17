@@ -4,16 +4,14 @@
 
   .category-box {
     @include custom-card;
-    .category-box-inner {
-      border: none;
-    }
-  }
 
-  .category-box {
-    border-top: 1px solid transparent;
-    border-right: 1px solid transparent;
-    border-bottom: 1px solid transparent;
-    border-left: 6px solid var(--category-badge-color);
+    // stylelint-disable-next-line no-duplicate-selectors
+    & {
+      border-top: 1px solid transparent;
+      border-right: 1px solid transparent;
+      border-bottom: 1px solid transparent;
+      border-left: 6px solid var(--category-badge-color);
+    }
 
     .discourse-no-touch & {
       &:hover {
@@ -22,6 +20,10 @@
         border-bottom: 1px solid var(--redditish-border-highlight-color);
         border-left: 6px solid var(--category-badge-color);
       }
+    }
+
+    .category-box-inner {
+      border: none;
     }
 
     .subcategories .subcategory {

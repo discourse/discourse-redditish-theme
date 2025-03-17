@@ -11,6 +11,9 @@
   border-radius: 0.25em;
   border: 1px solid var(--redditish-border-color);
   background: var(--secondary);
+
+  @content;
+
   .discourse-no-touch & {
     &:hover {
       border: 1px solid var(--redditish-border-highlight-color);
@@ -20,6 +23,7 @@
 
 @mixin custom-topic-width {
   width: calc(100% - 8em);
+
   @media screen and (max-width: 924px) {
     width: 100%;
   }
@@ -59,9 +63,9 @@ body {
       grid-template-areas:
         "category-banner category-banner category-banner category-banner category-banner category-banner"
         "sidebar lspace content sidebar2 rspace sidebar-spacer";
-      grid-template-columns: var(--d-sidebar-width) 1fr minmax(0, 640px) 312px 1fr var(
-          --d-sidebar-width
-        );
+      grid-template-columns:
+        var(--d-sidebar-width) 1fr minmax(0, 640px)
+        312px 1fr var(--d-sidebar-width);
       grid-template-rows: auto 1fr;
       gap: 0 1.5em;
 
@@ -70,13 +74,14 @@ body {
       }
 
       @media screen and (max-width: 1160px) {
-        .custom-right-sidebar {
-          display: none;
-        }
         grid-template-areas:
           "category-banner category-banner category-banner category-banner category-banner"
           "sidebar lspace content rspace sidebar-spacer";
         grid-template-columns: auto 1fr minmax(0, 640px) 1fr auto;
+
+        .custom-right-sidebar {
+          display: none;
+        }
       }
 
       @media screen and (max-width: 768px) {
@@ -94,13 +99,14 @@ body {
         "sidebar lspace content sidebar2 rspace sidebar-spacer";
 
       @media screen and (max-width: 1160px) {
-        .custom-right-sidebar {
-          display: none;
-        }
         grid-template-areas:
           "sidebar category-banner category-banner category-banner category-banner"
           "sidebar lspace content rspace sidebar-spacer";
         grid-template-columns: auto 1fr minmax(0, 640px) 1fr auto;
+
+        .custom-right-sidebar {
+          display: none;
+        }
       }
     }
   }
@@ -118,7 +124,8 @@ body {
 .btn-default,
 .btn-primary,
 .btn {
-  &:not(.btn-icon):not(
+  &:not(
+      .btn-icon,
       [class*="popup-menu-btn"],
       [class*="post-action-menu__"],
       [class*="topic-map__"]
@@ -141,6 +148,7 @@ body {
   max-width: 640px;
   margin: 0 auto;
   grid-area: content;
+  padding-bottom: 2em; // makes some room for "powered by discourse"
 }
 
 #banner {
@@ -149,6 +157,7 @@ body {
 
 .sidebar-wrapper .sidebar-container {
   border-right: 1px solid var(--redditish-border-color);
+
   &:hover {
     border-color: var(--redditish-border-highlight-color);
   }
@@ -182,12 +191,6 @@ body {
   border: 1px solid var(--primary-500);
   grid-area: content;
   align-self: end;
-}
-
-// makes some room for "powered by discourse"
-
-#main-outlet {
-  padding-bottom: 2em;
 }
 
 html.composer-open #main-outlet {

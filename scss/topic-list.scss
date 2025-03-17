@@ -32,9 +32,11 @@ body.category,
 }
 
 .topic-list-bottom .footer-message {
-  @include custom-card;
   text-align: center;
-  padding: 2.5em 3em 2em;
+
+  @include custom-card {
+    padding: 2.5em 3em 2em;
+  }
 }
 
 .category-heading {
@@ -44,6 +46,7 @@ body.category,
 #navigation-bar {
   width: 100%;
   margin: 0 0 1em 0;
+
   @include custom-card;
 }
 
@@ -129,11 +132,19 @@ div.education {
     overflow-wrap: break-word;
   }
 
+  .badge-notification,
+  .category-topic-link td.num .badge-notification {
+    font-size: var(--font-down-3);
+    top: -2px; // ocular alignment
+    padding: 0.2em 0.4em 0.2em;
+  }
+
   .topic-list-item-separator {
     .topic-list-data {
       display: flex;
       justify-content: center;
       background: var(--danger-medium);
+      max-width: unset;
 
       span {
         position: absolute;
@@ -158,9 +169,10 @@ div.education {
 }
 
 .custom-topic-layout {
-  @include custom-card;
   cursor: pointer;
   width: 100%;
+
+  @include custom-card;
 
   h2 {
     margin: 0 !important;
@@ -175,7 +187,7 @@ div.education {
     min-width: 0;
 
     a:not(.badge-wrapper) {
-      color: currentColor;
+      color: currentcolor;
 
       &:hover,
       &:focus {
@@ -230,10 +242,10 @@ div.education {
 }
 
 .custom-post-bar-contents {
-  @include custom-card;
-
   display: flex;
   align-items: center;
+
+  @include custom-card;
 
   .avatar {
     margin: 0 1em 0 0;
@@ -260,10 +272,6 @@ div.education {
   margin-bottom: 1em;
 }
 
-.topic-list .topic-list-item-separator .topic-list-data {
-  max-width: unset;
-}
-
 #dismiss-topics-top,
 #dismiss-new-top,
 #dismiss-new-bottom,
@@ -271,13 +279,14 @@ div.education {
   display: block;
   background: var(--secondary);
   border: 1px solid var(--redditish-border-color);
+
   .discourse-no-touch & {
     &:hover {
       border: 1px solid var(--redditish-border-highlight-color);
-
       color: var(--primary);
+
       .d-icon {
-        color: currentColor;
+        color: currentcolor;
       }
     }
   }
@@ -292,23 +301,16 @@ div.education {
   margin-bottom: 0.5em;
 }
 
-.topic-list {
-  .badge-notification,
-  .category-topic-link td.num .badge-notification {
-    font-size: var(--font-down-3);
-    top: -2px; // ocular alignment
-    padding: 0.2em 0.4em 0.2em;
-  }
-}
-
 .category-boxes {
   .description,
   h3 {
     text-align: left;
   }
+
   .description {
     margin-top: 0.5em;
   }
+
   .subcategories {
     margin-left: -0.5em;
   }

@@ -20,10 +20,12 @@
 .custom-topic-layout {
   h2 {
     line-height: 1.2;
+
     a {
       color: var(--primary);
     }
   }
+
   .link-bottom-line {
     margin-top: 0.25em;
   }
@@ -37,14 +39,17 @@ body.category,
     right: 1.25em;
     bottom: 1em;
     top: unset;
+
     .bulk-select {
       display: none;
     }
+
     #create-topic {
       display: flex !important;
       background: var(--tertiary);
       color: var(--secondary);
       box-shadow: var(--shadow-card);
+
       .d-icon {
         color: var(--secondary);
       }
@@ -124,10 +129,12 @@ body.category,
         display: none;
       }
     }
+
     .text {
       margin: 0.5em 0 0 0;
     }
   }
+
   &.docked {
     margin-top: 0.5em;
   }
@@ -152,6 +159,7 @@ html:not(.footer-nav-visible) #topic-progress-wrapper {
   border-radius: 100px;
   border: 1px solid var(--primary-low-mid);
   overflow: hidden;
+
   .nums {
     top: 0.5em;
   }
@@ -159,6 +167,7 @@ html:not(.footer-nav-visible) #topic-progress-wrapper {
 
 #topic-progress-wrapper {
   margin-bottom: 1em;
+
   #topic-progress .nums {
     position: static;
   }
@@ -182,21 +191,26 @@ html:not(.footer-nav-visible) #topic-progress-wrapper {
     margin: 0.5em 0;
     font-size: var(--font-down-1);
   }
+
   .reply-area {
     padding: 0 0.5em 0.5em;
   }
+
   .grippie {
     display: none;
   }
+
   .submit-panel {
     margin-bottom: 0.25em;
     margin-top: 0.33em;
   }
+
   .composer-actions {
     .select-kit-body {
       font-size: var(--font-up-1);
     }
   }
+
   &.closed {
     border: none;
   }
