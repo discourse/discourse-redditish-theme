@@ -16,5 +16,6 @@
   "components": [
     "https://github.com/discourse/discourse-full-width-component.git",
     "https://github.com/discourse/discourse-header-search.git"
-  ]
+  ],
+  "screenshots": ["screenshots/light.png", "screenshots/dark.png"]
 }
