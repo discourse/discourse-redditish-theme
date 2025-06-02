@@ -1,4 +1,6 @@
 en:
+  theme_metadata:
+    description: "A Discourse theme that looks a little like reddit"
   top_route_welcome: "Welcome!"
   top_route_description: "You're viewing a feed containing topics from all categories. If you're looking for something more specific, browse <a href='%{basePath}/categories'>the category list</a>."
   about_category: "About this category"
