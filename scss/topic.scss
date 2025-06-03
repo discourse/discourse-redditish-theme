@@ -189,7 +189,7 @@
 .container.posts {
   grid-template-columns: 1fr 8em;
 
-  @media screen and (max-width: 924px) {
+  @media screen and (width <= 924px) {
     grid-template-columns: 1fr;
   }
 

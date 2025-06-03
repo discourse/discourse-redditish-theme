@@ -21,7 +21,7 @@
   #main-outlet-wrapper #main-outlet {
     grid-column-end: sidebar2;
 
-    @media screen and (max-width: 1160px) {
+    @media screen and (width <= 1160px) {
       grid-column-end: auto;
     }
   }

@@ -3,6 +3,7 @@ import { tracked } from "@glimmer/tracking";
 import { action, set } from "@ember/object";
 import { dependentKeyCompat } from "@ember/object/compat";
 import { service } from "@ember/service";
+import DButton from "discourse/components/d-button";
 
 export default class AddToSidebar extends Component {
   @service currentUser;
@@ -91,4 +92,14 @@ export default class AddToSidebar extends Component {
       })
       .finally(() => {});
   }
+
+  <template>
+    {{#unless this.shouldNotRender}}
+      <DButton
+        @action={{action "toggleInSidebar"}}
+        class="btn-default add-to-sidebar {{if this.isInSidebar 'in-sidebar'}}"
+        @icon={{this.buttonIcon}}
+      />
+    {{/unless}}
+  </template>
 }
