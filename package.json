@@ -3,8 +3,8 @@
   "license": "MIT",
   "devDependencies": {
     "eslint-config-discourse": "latest",
-    "@discourse/lint-configs": "2.24.0",
-    "ember-template-lint": "7.7.0",
+    "@discourse/lint-configs": "2.25.0",
+    "ember-template-lint": "7.8.1",
     "eslint": "9.28.0",
     "prettier": "3.5.3",
     "stylelint": "16.20.0"
