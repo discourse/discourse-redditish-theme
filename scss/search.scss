@@ -15,7 +15,6 @@
 }
 
 // header search
-
 .floating-search-input .search-banner-inner.wrap .search-menu .results {
   border: none;
 }
@@ -23,6 +22,7 @@
 .search-menu .menu-panel,
 .search-menu-container .menu-panel {
   border: 1px solid transparent;
+
   &:hover {
     border: 1px solid var(--redditish-border-highlight-color);
   }

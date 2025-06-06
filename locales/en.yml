@@ -1,6 +1,8 @@
 en:
+  theme_metadata:
+    description: "A Discourse theme that looks a little like reddit"
   top_route_welcome: "Welcome!"
-  top_route_description: "You're viewing a feed containing topics from all categories. If you're looking for something more specific, browse <a href='/categories'>the category list</a>."
+  top_route_description: "You're viewing a feed containing topics from all categories. If you're looking for something more specific, browse <a href='%{basePath}/categories'>the category list</a>."
   about_category: "About this category"
   about_admin_tip_headline: "Psst, hey admins!"
   about_category_admin_tip_description: "You can add a category description here by editing <a href=%{topicUrl}>this post</a>."
@@ -8,3 +10,7 @@ en:
   about_tag: "About this tag"
   about_tag_admin_tip_description: "You can add a tag description here by"
   about_tag_admin_tip_description_link: "clicking this link."
+  recent_topics: "Recent topics"
+  top_tags: "Top tags"
+  subcategories: "Subcategories"
+  posted_by: "Posted by"

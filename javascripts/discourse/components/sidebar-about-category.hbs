@@ -20,7 +20,7 @@
         >
           {{#if this.currentUser.can_create_topic}}
             <DButton
-              @class="btn-default"
+              class="btn-default"
               @id="custom-create-topic"
               @action={{action "customCreateTopic"}}
               @icon="plus"
@@ -44,7 +44,7 @@
 
         {{#if this.category.subcategories}}
           <div class="custom-right-sidebar_subcategories">
-            <h4>Subcategories</h4>
+            <h4>{{theme-i18n "subcategories"}}</h4>
             {{#each this.category.subcategories as |subcategory|}}
               {{category-link subcategory}}
             {{/each}}
@@ -53,15 +53,16 @@
 
         {{#if this.site.category_top_tags}}
           <div class="custom-right-sidebar_tags">
-
-            <h4>Top Tags</h4>
+            <h4>{{theme-i18n "top_tags"}}</h4>
             <div class="discourse-tags">
               {{#each this.site.category_top_tags as |tag|}}
                 <a
                   href="/tags/c/{{this.category.slug}}/{{tag}}"
-                  data-tag-name="{{tag}}"
+                  data-tag-name={{tag}}
                   class="discourse-tag simple"
-                >{{tag}}</a>
+                >
+                  {{tag}}
+                </a>
               {{/each}}
             </div>
           </div>

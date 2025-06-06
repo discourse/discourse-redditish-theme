@@ -16,6 +16,7 @@
 .users-page {
   #main-outlet-wrapper #main-outlet {
     margin-top: 2em;
+
     @include custom-card;
   }
 }

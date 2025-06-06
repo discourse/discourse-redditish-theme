@@ -1,11 +1,12 @@
 import Component from "@glimmer/component";
-import { inject as service } from "@ember/service";
-import { action, set } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
+import { action, set } from "@ember/object";
 import { dependentKeyCompat } from "@ember/object/compat";
+import { service } from "@ember/service";
 
 export default class AddToSidebar extends Component {
   @service currentUser;
+
   @tracked saved = false;
   @tracked sidebarChanged = false;
   saveAttrNames = ["sidebar_category_ids", "sidebar_tag_names"];
@@ -25,7 +26,7 @@ export default class AddToSidebar extends Component {
 
     return (
       (category &&
-        this.currentUser.sidebar_category_ids.includes(category.id)) ||
+        this.currentUser.sidebar_category_ids?.includes(category.id)) ||
       (tag &&
         this.currentUser.sidebar_tags.some(
           (savedTag) => savedTag.name === tag.name
@@ -84,6 +85,7 @@ export default class AddToSidebar extends Component {
         this.sidebarChanged = !this.sidebarChanged;
       })
       .catch((error) => {
+        // eslint-disable-next-line no-console
         console.error("Error updating sidebar:", error);
         this.saved = false;
       })

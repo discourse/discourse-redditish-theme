@@ -5,11 +5,17 @@
   "name": "HealthPathways Full width",
   "modifiers": {
     "serialize_topic_excerpts": true,
-    "topic_thumbnail_sizes": [[620, 500]]
+    "topic_thumbnail_sizes": [
+      [
+        620,
+        500
+      ]
+    ]
   },
   "color_schemes": {},
   "components": [
     "https://github.com/discourse/discourse-full-width-component.git",
     "https://github.com/discourse/discourse-header-search.git"
-  ]
+  ],
+  "screenshots": ["screenshots/light.png", "screenshots/dark.png"]
 }

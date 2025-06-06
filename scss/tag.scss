@@ -4,6 +4,7 @@
 
 .all-tag-lists {
   @include custom-card;
+
   .tags-list {
     margin: 0;
     border: none;
@@ -24,6 +25,7 @@ section.tag-info {
     display: flex;
     flex-direction: column;
   }
+
   section.tag-info {
     order: -1;
   }

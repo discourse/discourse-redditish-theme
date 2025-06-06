@@ -2,6 +2,19 @@
   "author": "HP",
   "license": "MIT",
   "devDependencies": {
-    "eslint-config-discourse": "latest"
-  }
+    "eslint-config-discourse": "latest",
+    "@discourse/lint-configs": "2.11.1",
+    "ember-template-lint": "7.0.1",
+    "eslint": "9.22.0",
+    "prettier": "3.5.3",
+    "stylelint": "16.16.0"
+  },
+  "private": true,
+  "engines": {
+    "node": ">= 22",
+    "npm": "please-use-pnpm",
+    "yarn": "please-use-pnpm",
+    "pnpm": "9.x"
+  },
+  "packageManager": "pnpm@9.15.5"
 }

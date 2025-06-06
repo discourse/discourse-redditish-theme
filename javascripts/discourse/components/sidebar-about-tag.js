@@ -1,18 +1,23 @@
 import Component from "@glimmer/component";
-import { inject as service } from "@ember/service";
-import { action } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
+import { action } from "@ember/object";
+import { service } from "@ember/service";
+import { getOwner } from "discourse/lib/get-owner";
 import Composer from "discourse/models/composer";
-import I18n from "I18n";
-import { getOwner } from "discourse-common/lib/get-owner";
+import { i18n } from "discourse-i18n";
 
 export default class SidebarAboutTag extends Component {
   @service store;
   @service router;
   @service currentUser;
   @service composer;
+
   @tracked tag = null;
   @tracked tagNotification = null;
+
+  get shouldShow() {
+    return this.tag && !this.category;
+  }
 
   get tagId() {
     return this.router.currentRoute.params?.tag_id;
@@ -23,7 +28,7 @@ export default class SidebarAboutTag extends Component {
   }
 
   get linkedDescription() {
-    return I18n.t(themePrefix("about_tag_admin_tip_description"), {
+    return i18n(themePrefix("about_tag_admin_tip_description"), {
       topicUrl: "test",
     });
   }
