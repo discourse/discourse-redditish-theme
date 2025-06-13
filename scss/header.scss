@@ -1,14 +1,7 @@
 .d-header {
+  display: flex !important;
   box-shadow: none;
   border-bottom: 1px solid var(--redditish-border-color);
-
-  &:hover {
-    border-bottom: 1px solid var(--redditish-border-highlight-color);
-  }
-
-  &:has(.menu-panel:hover) {
-    border-bottom: 1px solid var(--redditish-border-highlight-color);
-  }
 }
 
 .menu-panel {
@@ -33,6 +26,24 @@
   }
 }
 
+.home-logo-wrapper-outlet {
+  grid-area: logo;
+  margin-left: 3.7em; // 2.7em hamburger width + 1em for margin
+  margin-right: 0.725em;
+
+  a {
+    flex: 1 0 auto;
+  }
+
+  /* Adjusting the logo image size */
+  img {
+    width: auto; /* or a specific width like 150px */
+    height: auto; /* or a specific height like 50px */
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
 .d-header-icons .icon {
   padding: 0.25em !important; // too specific in core
   border-radius: var(--d-button-border-radius);
@@ -43,11 +54,29 @@
   }
 }
 
+.has-sidebar-page .d-header > .wrap .contents {
+  grid-template-columns:
+    50px calc(var(--d-sidebar-width)) 1fr minmax(
+      0,
+      calc(var(--d-sidebar-width) - 50px)
+    )
+    minmax(0, 110px) !important;
+  gap: 1em;
+}
+
+.floating-search-input {
+  width: 60%;
+}
+
 .d-header-icons .active .icon {
   border-color: transparent !important;
 }
 
-.header-sidebar-toggle button .d-icon {
-  font-size: var(--font-up-2);
-  color: var(--primary-medium);
+.header-sidebar-toggle {
+  max-width: 50px !important;
+
+  button .d-icon {
+    font-size: var(--font-up-2);
+    color: var(--primary-medium);
+  }
 }

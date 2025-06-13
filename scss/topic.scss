@@ -1,17 +1,20 @@
 #topic-title {
-  background: var(--primary);
+  background: var(--secondary);
   margin: 0;
-  border-radius: 4px 4px 0 0;
-  box-sizing: border-box;
-  padding: 1em 2em;
+  border-radius: 0.5em 0.5em 0 0;
+  border: 1px solid var(--redditish-border-color);
+  border-bottom: none !important;
+  box-shadow: 0 1px 2px 0 rgba(21, 21, 21, 0.08);
 
   @include custom-topic-width;
+  box-sizing: border-box;
+  padding: 1em 2em;
 
   h1 {
     font-size: var(--font-up-4);
 
     a {
-      color: var(--secondary);
+      color: var(--primary);
     }
     font-weight: normal;
     margin-bottom: 0.25em;
@@ -21,7 +24,7 @@
   .discourse-tag.simple,
   .discourse-tag.simple:visited,
   .discourse-tag.simple:hover {
-    color: var(--secondary);
+    color: var(--primary);
   }
 
   a.edit-topic {
@@ -41,9 +44,31 @@
   }
 }
 
+.title-voting {
+  padding-right: 0.75em;
+  padding-left: 0.75em;
+  width: 6em;
+  max-width: 10%;
+  box-sizing: border-box;
+  float: left;
+}
+
+.vote-count-wrapper {
+  font-size: var(--font-up-2);
+  height: 40px;
+  width: 100%;
+  margin-left: 0 !important;
+  border: 0 !important;
+}
+
+.vote-button {
+  width: 100%;
+  margin: 0;
+}
+
 .signup-cta {
-  @include custom-card;
   @include custom-topic-width;
+  @include custom-card;
 
   .buttons {
     margin-bottom: 0;
@@ -55,6 +80,11 @@
   .topic-body {
     border-top: none;
   }
+}
+
+.topic-status-info,
+.topic-timer-info {
+  border-top: none !important;
 }
 
 .names span.first {
@@ -71,7 +101,6 @@
 
 .timeline-container.timeline-docked-bottom .timeline-footer-controls {
   opacity: 1;
-  pointer-events: all; // overrides core
 }
 
 .timeline-container .topic-timeline .timeline-scrollarea {
@@ -83,18 +112,14 @@
 }
 
 .timeline-footer-controls,
-.timeline-controls,
-.topic-notifications-button,
 .topic-admin-menu-button {
   > button,
   .topic-notifications-button summary {
+    @include custom-card;
     height: 2.6em; // consistency hack
+    padding-top: 0.6em;
+    padding-bottom: 0.65em;
     font-size: var(--font-down-1);
-
-    @include custom-card {
-      padding-top: 0.6em;
-      padding-bottom: 0.65em;
-    }
   }
 }
 
@@ -103,9 +128,8 @@
 }
 
 #topic-footer-buttons {
-  margin-bottom: 0;
-
   @include custom-topic-width;
+  margin-bottom: 0;
 
   .btn-primary {
     float: none;
@@ -193,11 +217,11 @@
     grid-template-columns: 1fr;
   }
 
-  #topic-progress-wrapper #topic-progress {
+  #topic-progress {
     border: 1px solid var(--primary-400);
 
     .nums {
-      top: 0.1em;
+      top: 0.65em;
     }
   }
 
@@ -213,18 +237,14 @@
 }
 
 .posts-wrapper {
-  @include custom-card {
-    border-radius: 0 0 4px 4px;
-    border-top: none !important;
-    padding: 1em 2em 2em;
-  }
+  @include custom-card;
+  border-radius: 0 0 0.5em 0.5em;
+  border-top: none !important;
+  padding: 1em 2em 2em;
 }
 
-.topic-map.--bottom {
-  margin-top: 1em;
-  max-width: unset;
-
-  @include custom-card;
+.topic-map {
+  border-radius: 4px;
 }
 
 .map:first-of-type .buttons .btn {

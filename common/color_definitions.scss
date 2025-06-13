@@ -1,4 +1,4 @@
-$redditish-light-bg: #dae0e6;
+$redditish-light-bg: rgba(240, 244, 248, 1);
 $redditish-background-color: dark-light-choose(
   $redditish-light-bg,
   $header_background
@@ -22,8 +22,15 @@ $redditish-border-highlight-color: $primary-200 !default;
   $redditish-border-highlight-color: $redditish-border-highlight-color-dark;
 }
 
+/* Overrides for HP colours */
+$redditish-border-color: rgba(205, 215, 225, 1);
+$box-shadow-default: 0px 2px 4px 0px rgba(21, 21, 21, 0.08);
+$box-shadow-hover: 0px 1px 2px 0px rgba(21, 21, 21, 0.08);
+
 :root {
   --redditish-bg-color: #{$redditish-background-color};
   --redditish-border-color: #{$redditish-border-color};
   --redditish-border-highlight-color: #{$redditish-border-highlight-color};
+  --box-shadow-default: #{$box-shadow-default};
+  --box-shadow-hover: #{$box-shadow-hover};
 }

@@ -4,7 +4,6 @@
   @include custom-card;
 }
 
-.badge-card .favorite-btn {
-  right: 0.5em;
-  bottom: 0.5em;
+.badge-wrapper.box span.badge-category-bg {
+  border-radius: 4px;
 }

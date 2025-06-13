@@ -1,51 +1,14 @@
 :root {
-  --d-button-border-radius: 100px;
-  --d-nav-pill-border-radius: 100px;
+  --d-button-border-radius: 4px;
+  --d-nav-pill-border-radius: 4px;
   --d-input-border-radius: 4px;
   --topic-body-width: 900px;
 }
 
-@mixin custom-card {
-  box-sizing: border-box;
-  padding: 0.75em;
-  border-radius: 0.25em;
-  border: 1px solid var(--redditish-border-color);
-  background: var(--secondary);
-
-  @content;
-
-  .discourse-no-touch & {
-    &:hover {
-      border: 1px solid var(--redditish-border-highlight-color);
-    }
-  }
-}
-
-@mixin custom-topic-width {
-  width: calc(100% - 8em);
-
-  @media screen and (max-width: 924px) {
-    width: 100%;
-  }
-}
-
-@import "badges";
-@import "categories";
-@import "category-banner";
-@import "category-boxes";
-@import "chat";
-@import "composer";
-@import "groups";
-@import "header";
-@import "right-sidebar";
-@import "search";
-@import "select-kit";
-@import "tag";
-@import "topic";
-@import "topic-list";
-@import "user";
+@import "https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap";
 
 body {
+  font-family: Roboto, sans-serif;
   background: var(--redditish-bg-color);
   background-image: none !important; /* overrides category bg because we use it for banners instead */
 
@@ -74,14 +37,13 @@ body {
       }
 
       @media screen and (max-width: 1160px) {
+        .custom-right-sidebar {
+          display: none;
+        }
         grid-template-areas:
           "category-banner category-banner category-banner category-banner category-banner"
           "sidebar lspace content rspace sidebar-spacer";
         grid-template-columns: auto 1fr minmax(0, 640px) 1fr auto;
-
-        .custom-right-sidebar {
-          display: none;
-        }
       }
 
       @media screen and (max-width: 768px) {
@@ -99,14 +61,13 @@ body {
         "sidebar lspace content sidebar2 rspace sidebar-spacer";
 
       @media screen and (max-width: 1160px) {
+        .custom-right-sidebar {
+          display: none;
+        }
         grid-template-areas:
           "sidebar category-banner category-banner category-banner category-banner"
           "sidebar lspace content rspace sidebar-spacer";
         grid-template-columns: auto 1fr minmax(0, 640px) 1fr auto;
-
-        .custom-right-sidebar {
-          display: none;
-        }
       }
     }
   }
@@ -121,26 +82,50 @@ body {
   }
 }
 
-.btn-default,
-.btn-primary,
-.btn {
-  &:not(
-      .btn-icon,
-      [class*="popup-menu-btn"],
-      [class*="post-action-menu__"],
-      [class*="topic-map__"]
-    ) {
-    padding: 0.5em 1em;
+@mixin custom-card {
+  box-sizing: border-box;
+  padding: 0.75em;
+  border-radius: 0.5em;
+  border: 1px solid var(--redditish-border-color);
+  background: var(--secondary);
+  box-shadow: 0 1px 2px 0 rgba(21, 21, 21, 0.08);
+
+  .discourse-no-touch & {
+    &:hover {
+      box-shadow: 0 2px 4px 0 rgba(21, 21, 21, 0.08);
+    }
   }
 }
 
-.btn[class*="popup-menu-btn"] {
-  border: none;
+@mixin custom-topic-width {
+  width: calc(100% - 8em);
+
+  @media screen and (max-width: 924px) {
+    width: 100%;
+  }
 }
 
-.dropdown-menu {
-  .btn {
-    border-radius: 0;
+@import "badges";
+@import "categories";
+@import "category-banner";
+@import "category-boxes";
+@import "chat";
+@import "composer";
+@import "groups";
+@import "header";
+@import "right-sidebar";
+@import "search";
+@import "select-kit";
+@import "tag";
+@import "topic";
+@import "topic-list";
+@import "user";
+
+.sidebar-section-link-wrapper {
+  .sidebar-section-link {
+    &[data-link-name="docs"] {
+      display: none;
+    }
   }
 }
 
@@ -148,7 +133,7 @@ body {
   max-width: 640px;
   margin: 0 auto;
   grid-area: content;
-  padding-bottom: 2em; // makes some room for "powered by discourse"
+  padding-bottom: 2em;
 }
 
 #banner {
@@ -156,11 +141,7 @@ body {
 }
 
 .sidebar-wrapper .sidebar-container {
-  border-right: 1px solid var(--redditish-border-color);
-
-  &:hover {
-    border-color: var(--redditish-border-highlight-color);
-  }
+  border-right: 1px solid rgba(99, 107, 116, 0.3);
 }
 
 .sidebar-section-wrapper
@@ -171,6 +152,44 @@ body {
 .sidebar-section-link-wrapper button {
   border-radius: 0;
   padding: 0 var(--d-sidebar-row-horizontal-padding) !important; // overrides button specificity
+}
+
+.sidebar-section-wrapper.sidebar-section[data-section-name="categories"] {
+  display: none;
+}
+
+.sidebar-section-wrapper.sidebar-section[data-section-name="tags"] {
+  display: none;
+}
+
+.sidebar-wrapper {
+  .sidebar-custom-sections {
+    display: contents;
+  }
+
+  [data-section-name="community"] {
+    order: -6;
+  }
+
+  [data-section-name="global"] {
+    order: -5;
+  }
+
+  [data-section-name="australia"] {
+    order: -4;
+  }
+
+  [data-section-name="england"] {
+    order: -3;
+  }
+
+  [data-section-name="new-zealand"] {
+    order: -2;
+  }
+
+  [data-section-name="wales"] {
+    order: -1;
+  }
 }
 
 .add-to-sidebar {
@@ -195,4 +214,29 @@ body {
 
 html.composer-open #main-outlet {
   padding-bottom: var(--composer-height);
+}
+
+.admin-customize .themes-list-container {
+  border-radius: 4px !important;
+}
+
+.alert {
+  border-radius: 4px !important;
+}
+
+.btn-default,
+.btn-primary,
+.btn {
+  &:not(.btn-icon, [class*="popup-menu-btn"]) {
+    padding: 0.5em 1em;
+    margin: 0.1em;
+  }
+}
+
+.btn[class*="popup-menu-btn"] {
+  border: none;
+}
+
+.popup-menu {
+  padding: 0.25em;
 }

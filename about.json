@@ -5,12 +5,7 @@
   "name": "redditish",
   "modifiers": {
     "serialize_topic_excerpts": true,
-    "topic_thumbnail_sizes": [
-      [
-        620,
-        500
-      ]
-    ]
+    "topic_thumbnail_sizes": [[620, 500]]
   },
   "color_schemes": {},
   "components": [

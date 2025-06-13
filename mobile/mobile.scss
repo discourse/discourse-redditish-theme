@@ -154,6 +154,7 @@ html:not(.footer-nav-visible) #topic-progress-wrapper {
 
 #topic-progress {
   --d-border-radius: 100px;
+  height: 2.5em;
   margin-right: 0.5em;
   margin-left: 0;
   border-radius: 100px;
@@ -162,14 +163,6 @@ html:not(.footer-nav-visible) #topic-progress-wrapper {
 
   .nums {
     top: 0.5em;
-  }
-}
-
-#topic-progress-wrapper {
-  margin-bottom: 1em;
-
-  #topic-progress .nums {
-    position: static;
   }
 }
 
@@ -210,10 +203,6 @@ html:not(.footer-nav-visible) #topic-progress-wrapper {
       font-size: var(--font-up-1);
     }
   }
-
-  &.closed {
-    border: none;
-  }
 }
 
 .alert.alert-info.clickable {
@@ -229,8 +218,4 @@ html:not(.footer-nav-visible) #topic-progress-wrapper {
 
 .custom-topic-layout_meta-posted-by {
   display: none;
-}
-
-#navigation-bar {
-  justify-content: center;
 }

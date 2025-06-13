@@ -9,9 +9,7 @@ body.category,
     z-index: z("header") - 1;
 
     #create-topic,
-    .select-kit.single-select.dropdown-select-box.notifications-button,
-    .topic-drafts-menu-trigger,
-    .notifications-tracking-trigger {
+    .select-kit.single-select.dropdown-select-box.notifications-button {
       display: none;
     }
   }
@@ -32,11 +30,13 @@ body.category,
 }
 
 .topic-list-bottom .footer-message {
+  @include custom-card;
   text-align: center;
+  padding: 2.5em 3em 2em;
+}
 
-  @include custom-card {
-    padding: 2.5em 3em 2em;
-  }
+#header-list-area {
+  display: none;
 }
 
 .category-heading {
@@ -128,17 +128,6 @@ div.education {
     }
   }
 
-  a.title {
-    overflow-wrap: break-word;
-  }
-
-  .badge-notification,
-  .category-topic-link td.num .badge-notification {
-    font-size: var(--font-down-3);
-    top: -2px; // ocular alignment
-    padding: 0.2em 0.4em 0.2em;
-  }
-
   .topic-list-item-separator {
     .topic-list-data {
       display: flex;
@@ -166,13 +155,19 @@ div.education {
   tr {
     border: none;
   }
+
+  .badge-notification,
+  .category-topic-link td.num .badge-notification {
+    font-size: var(--font-down-3);
+    top: -2px; // ocular alignment
+    padding: 0.2em 0.4em 0.2em;
+  }
 }
 
 .custom-topic-layout {
+  @include custom-card;
   cursor: pointer;
   width: 100%;
-
-  @include custom-card;
 
   h2 {
     margin: 0 !important;
@@ -184,7 +179,6 @@ div.education {
     color: var(--primary-medium);
     margin-bottom: 0.5em;
     padding-left: 0.05em;
-    min-width: 0;
 
     a:not(.badge-wrapper) {
       color: currentcolor;
@@ -220,13 +214,13 @@ div.education {
 
     img {
       width: 100%;
-      height: auto;
       max-height: 500px;
       object-fit: contain;
     }
   }
 
   &_bottom-bar {
+    font-weight: bold;
     font-size: var(--font-down-1);
     color: var(--primary-medium);
     padding: 0.25em 0;
@@ -242,10 +236,9 @@ div.education {
 }
 
 .custom-post-bar-contents {
+  @include custom-card;
   display: flex;
   align-items: center;
-
-  @include custom-card;
 
   .avatar {
     margin: 0 1em 0 0;
@@ -260,10 +253,6 @@ div.education {
     &:hover {
       border-color: var(--tertiary);
     }
-  }
-
-  .topic-drafts-menu-trigger {
-    margin-left: 0.5em;
   }
 }
 

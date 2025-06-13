@@ -4,19 +4,6 @@
   @include custom-card;
 }
 
-.categories-and-latest,
-.categories-and-top {
-  .category-list {
-    border: none;
-
-    .discourse-no-touch & {
-      &:hover {
-        border: none;
-      }
-    }
-  }
-}
-
 .navigation-categories {
   #main-outlet-wrapper #main-outlet {
     grid-column-end: sidebar2;
