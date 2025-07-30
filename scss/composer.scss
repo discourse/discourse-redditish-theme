@@ -106,3 +106,7 @@
     transform: scale(75%);
   }
 }
+
+#reply-control:not(.fullscreen).hide-preview {
+  --topic-body-width: 690px;
+}
