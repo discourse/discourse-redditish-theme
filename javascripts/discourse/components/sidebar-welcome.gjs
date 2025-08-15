@@ -45,7 +45,7 @@ export default class SidebarWelcome extends Component {
           <DButton
             class="btn-primary"
             @id="custom-create-topic"
-            @action={{action "customCreateTopic"}}
+            @action={{this.customCreateTopic}}
             @label="topic.create"
           />
         {{/if}}

@@ -95,7 +95,7 @@ export default class SidebarAboutCategory extends Component {
                 <DButton
                   class="btn-default"
                   @id="custom-create-topic"
-                  @action={{action "customCreateTopic"}}
+                  @action={{this.customCreateTopic}}
                   @icon="plus"
                   @translatedLabel={{i18n "topic.create"}}
                 />
@@ -103,7 +103,7 @@ export default class SidebarAboutCategory extends Component {
               <CategoryNotificationsButton
                 @value={{this.categoryNotificationLevel}}
                 @category={{this.category}}
-                @onChange={{action "changeCategoryNotificationLevel"}}
+                @onChange={{this.changeCategoryNotificationLevel}}
               />
 
               <AddToSidebar @tag={{this.tag}} @category={{this.category}} />
