@@ -115,7 +115,7 @@ export default class SidebarAboutTag extends Component {
                     <DButton
                       class="btn-default"
                       @id="custom-create-topic"
-                      @action={{action "customCreateTopic"}}
+                      @action={{this.customCreateTopic}}
                       @icon="plus"
                       @translatedLabel={{i18n "topic.create"}}
                     />

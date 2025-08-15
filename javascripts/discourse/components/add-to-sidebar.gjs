@@ -96,7 +96,7 @@ export default class AddToSidebar extends Component {
   <template>
     {{#unless this.shouldNotRender}}
       <DButton
-        @action={{action "toggleInSidebar"}}
+        @action={{this.toggleInSidebar}}
         class="btn-default add-to-sidebar {{if this.isInSidebar 'in-sidebar'}}"
         @icon={{this.buttonIcon}}
       />
