@@ -7,7 +7,7 @@ import { service } from "@ember/service";
 import { or } from "truth-helpers";
 import DButton from "discourse/components/d-button";
 import htmlSafe from "discourse/helpers/html-safe";
-import { getOwner } from "discourse/lib/get-owner";
+import { getOwner } from "@ember/owner";
 import Composer from "discourse/models/composer";
 import { i18n } from "discourse-i18n";
 import TagNotificationsButton from "select-kit/components/tag-notifications-button";
