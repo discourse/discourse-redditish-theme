@@ -1,13 +1,13 @@
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
+import { getOwner } from "@ember/owner";
 import didInsert from "@ember/render-modifiers/modifiers/did-insert";
 import didUpdate from "@ember/render-modifiers/modifiers/did-update";
 import { service } from "@ember/service";
 import { or } from "truth-helpers";
 import DButton from "discourse/components/d-button";
 import htmlSafe from "discourse/helpers/html-safe";
-import { getOwner } from "@ember/owner";
 import Composer from "discourse/models/composer";
 import { i18n } from "discourse-i18n";
 import TagNotificationsButton from "select-kit/components/tag-notifications-button";
