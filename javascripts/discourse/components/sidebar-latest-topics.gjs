@@ -12,9 +12,7 @@ import topicLink from "discourse/helpers/topic-link";
 import { i18n } from "discourse-i18n";
 
 export default class LatestTopicsSidebar extends Component {
-  @service router;
   @service store;
-  @service siteSettings;
   @service currentUser;
 
   @tracked latestTopics = null;
