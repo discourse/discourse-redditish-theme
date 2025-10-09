@@ -125,11 +125,11 @@ body {
 .btn-primary,
 .btn {
   &:not(
-      .btn-icon,
-      [class*="popup-menu-btn"],
-      [class*="post-action-menu__"],
-      [class*="topic-map__"]
-    ) {
+    .btn-icon,
+    [class*="popup-menu-btn"],
+    [class*="post-action-menu__"],
+    [class*="topic-map__"]
+  ) {
     padding: 0.5em 1em;
   }
 }

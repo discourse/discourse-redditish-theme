@@ -21,7 +21,6 @@ import { i18n } from "discourse-i18n";
 
 export default class Item extends Component {
   @service currentUser;
-  @service historyStore;
   @service modal;
 
   get newDotText() {
