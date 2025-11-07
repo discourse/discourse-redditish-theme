@@ -244,13 +244,13 @@ html:not(.footer-nav-visible) #topic-progress-wrapper {
 }
 
 // topic voting support
-
 .regular:has(.title-voting) {
   #topic-title .title-wrapper {
     border-left: 1px solid var(--secondary);
     padding-left: 1em;
     min-height: 4.5em;
-    @media screen and (min-width: 925px) {
+
+    @media screen and (width >= 925px) {
       width: 80%;
     }
   }
@@ -264,12 +264,14 @@ html:not(.footer-nav-visible) #topic-progress-wrapper {
   max-width: unset;
   z-index: 2;
   padding: 0 0.5em 0 0.75em;
-  @media screen and (min-width: 768px) {
+
+  @media screen and (width >= 768px) {
     padding: 0 1em 0 1.75em;
   }
 
   .voting-wrapper {
     flex-direction: column;
+
     .vote-button {
       margin: 0;
     }
