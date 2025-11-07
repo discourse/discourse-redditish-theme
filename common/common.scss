@@ -125,11 +125,11 @@ body {
 .btn-primary,
 .btn {
   &:not(
-    .btn-icon,
-    [class*="popup-menu-btn"],
-    [class*="post-action-menu__"],
-    [class*="topic-map__"]
-  ) {
+      .btn-icon,
+      [class*="popup-menu-btn"],
+      [class*="post-action-menu__"],
+      [class*="topic-map__"]
+    ) {
     padding: 0.5em 1em;
   }
 }
@@ -195,4 +195,17 @@ body {
 
 html.composer-open #main-outlet {
   padding-bottom: var(--composer-height);
+}
+
+.topic-drafts-menu-trigger {
+  border-radius: var(--d-button-border-radius);
+}
+
+.custom-search-banner-wrap.welcome-banner__wrap {
+  @include custom-card;
+  margin-bottom: 1em;
+}
+
+.welcome-banner__title {
+  font-size: var(--font-up-4);
 }

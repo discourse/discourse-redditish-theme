@@ -39,7 +39,7 @@ export default class LatestTopicsSidebar extends Component {
 
     this.latestTopics = topicList.topics
       .filter((topic) => !topic.closed)
-      .slice(0, 5);
+      .slice(0, 3);
   }
 
   <template>
