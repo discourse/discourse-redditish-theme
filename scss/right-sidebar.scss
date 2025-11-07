@@ -4,6 +4,9 @@
   gap: 1em;
   margin-top: 1.5em;
   grid-area: sidebar2;
+  position: sticky;
+  top: calc(var(--header-offset) + 1em);
+  align-self: start;
 
   @media screen and (height >= 900px) {
     position: sticky;
