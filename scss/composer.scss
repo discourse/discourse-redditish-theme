@@ -75,6 +75,7 @@
 
   .reply-details {
     .select-kit.dropdown-select-box.composer-actions {
+      // stylelint-disable-next-line no-duplicate-selectors
       .select-kit-header {
         background: var(--primary-low);
         border-color: transparent;
