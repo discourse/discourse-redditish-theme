@@ -1,5 +1,5 @@
 #topic-title {
-  background: var(--secondary);
+  background: var(--hp-white);
   margin: 0;
   border-radius: 0.5em 0.5em 0 0;
   border: 1px solid var(--redditish-border-color);
@@ -14,7 +14,7 @@
     font-size: var(--font-up-4);
 
     a {
-      color: var(--primary);
+      color: var(--hp-navy);
     }
     font-weight: normal;
     margin-bottom: 0.25em;
@@ -24,7 +24,7 @@
   .discourse-tag.simple,
   .discourse-tag.simple:visited,
   .discourse-tag.simple:hover {
-    color: var(--primary);
+    color: var(--hp-navy);
   }
 
   a.edit-topic {
@@ -35,7 +35,7 @@
   .edit-topic-title {
     .category-name,
     .discourse-tag.simple {
-      color: var(--primary);
+      color: var(--hp-navy);
     }
 
     .select-kit.multi-select {
@@ -169,7 +169,7 @@
   } @else {
     .topic-footer-main-buttons {
       .btn-default {
-        background-color: var(--secondary);
+        background-color: var(--hp-white);
         border: 1px solid var(--primary-low-mid);
 
         .discourse-no-touch & {
@@ -182,7 +182,7 @@
   }
 
   .select-kit.single-select.dropdown-select-box .select-kit-header {
-    background: var(--secondary);
+    background: var(--hp-white);
     border-color: var(--primary-low-mid);
 
     &:hover,
