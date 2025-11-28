@@ -3,7 +3,7 @@
   grid-area: category-banner;
   margin: 0 0 0 -1.5em;
 
-  @media screen and (max-width: 782px) {
+  @media screen and (width <= 782px) {
     margin: 0;
   }
 

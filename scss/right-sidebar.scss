@@ -4,7 +4,11 @@
   gap: 1em;
   margin-top: 1.5em;
   grid-area: sidebar2;
-
+  @media screen and (height >= 900px) {
+    position: sticky;
+    top: calc(var(--header-offset) + 1.5em);
+    align-self: start;
+  }
   &_welcome,
   &_recent,
   &_category-about,

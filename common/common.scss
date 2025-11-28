@@ -7,6 +7,47 @@
 
 @import "https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap";
 
+@mixin custom-card {
+  box-sizing: border-box;
+  padding: 0.75em;
+  border-radius: 0.5em;
+  border: 1px solid var(--redditish-border-color);
+  background: var(--secondary);
+  box-shadow: 0 1px 2px 0 rgba(21, 21, 21, 0.08);
+
+  @content;
+
+  .discourse-no-touch & {
+    &:hover {
+      box-shadow: 0 2px 4px 0 rgba(21, 21, 21, 0.08);
+    }
+  }
+}
+
+@mixin custom-topic-width {
+  width: calc(100% - 8em);
+
+  @media screen and (width <= 924px) {
+    width: 100%;
+  }
+}
+
+@import "badges";
+@import "categories";
+@import "category-banner";
+@import "category-boxes";
+@import "chat";
+@import "composer";
+@import "groups";
+@import "header";
+@import "right-sidebar";
+@import "search";
+@import "select-kit";
+@import "tag";
+@import "topic";
+@import "topic-list";
+@import "user";
+
 body {
   font-family: Roboto, sans-serif;
   background: var(--redditish-bg-color);
@@ -32,21 +73,18 @@ body {
       grid-template-rows: auto 1fr;
       gap: 0 1.5em;
 
-      @media screen and (max-width: 1500px) {
+      @media screen and (width <= 1500px) {
         grid-template-columns: auto 1fr minmax(0, 640px) 312px 1fr auto;
       }
 
-      @media screen and (max-width: 1160px) {
-        .custom-right-sidebar {
-          display: none;
-        }
+      @media screen and (width <= 1160px) {
         grid-template-areas:
           "category-banner category-banner category-banner category-banner category-banner"
           "sidebar lspace content rspace sidebar-spacer";
         grid-template-columns: auto 1fr minmax(0, 640px) 1fr auto;
       }
 
-      @media screen and (max-width: 768px) {
+      @media screen and (width <= 768px) {
         gap: 0.5em;
       }
     }
@@ -60,10 +98,7 @@ body {
         "sidebar category-banner category-banner category-banner category-banner category-banner"
         "sidebar lspace content sidebar2 rspace sidebar-spacer";
 
-      @media screen and (max-width: 1160px) {
-        .custom-right-sidebar {
-          display: none;
-        }
+      @media screen and (width <= 1160px) {
         grid-template-areas:
           "sidebar category-banner category-banner category-banner category-banner"
           "sidebar lspace content rspace sidebar-spacer";
@@ -82,44 +117,18 @@ body {
   }
 }
 
-@mixin custom-card {
-  box-sizing: border-box;
-  padding: 0.75em;
-  border-radius: 0.5em;
-  border: 1px solid var(--redditish-border-color);
-  background: var(--secondary);
-  box-shadow: 0 1px 2px 0 rgba(21, 21, 21, 0.08);
-
-  .discourse-no-touch & {
-    &:hover {
-      box-shadow: 0 2px 4px 0 rgba(21, 21, 21, 0.08);
-    }
+.btn-default,
+.btn-primary,
+.btn {
+  &:not(
+    .btn-icon,
+    [class*="popup-menu-btn"],
+    [class*="post-action-menu__"],
+    [class*="topic-map__"]
+  ) {
+    padding: 0.5em 1em;
   }
 }
-
-@mixin custom-topic-width {
-  width: calc(100% - 8em);
-
-  @media screen and (max-width: 924px) {
-    width: 100%;
-  }
-}
-
-@import "badges";
-@import "categories";
-@import "category-banner";
-@import "category-boxes";
-@import "chat";
-@import "composer";
-@import "groups";
-@import "header";
-@import "right-sidebar";
-@import "search";
-@import "select-kit";
-@import "tag";
-@import "topic";
-@import "topic-list";
-@import "user";
 
 .sidebar-section-link-wrapper {
   .sidebar-section-link {
@@ -239,4 +248,17 @@ html.composer-open #main-outlet {
 
 .popup-menu {
   padding: 0.25em;
+}
+
+.topic-drafts-menu-trigger {
+  border-radius: var(--d-button-border-radius);
+}
+
+.custom-search-banner-wrap.welcome-banner__wrap {
+  @include custom-card;
+  margin-bottom: 1em;
+}
+
+.welcome-banner__title {
+  font-size: var(--font-up-4);
 }

@@ -39,6 +39,7 @@ body.category,
   display: none;
 }
 
+.category-heading.--has-logo,
 .category-heading {
   display: none;
 }
@@ -298,10 +299,6 @@ div.education {
 
   .description {
     margin-top: 0.5em;
-  }
-
-  .subcategories {
-    margin-left: -0.5em;
   }
 }
 

@@ -7,6 +7,13 @@
     display: none;
   }
 
+  // stylelint-disable-next-line no-duplicate-selectors
+  .reply-details
+    .select-kit.dropdown-select-box.composer-actions
+    .select-kit-header {
+    border-radius: var(--d-button-border-radius);
+  }
+
   .d-editor-textarea-wrapper,
   .select-kit.combo-box .select-kit-header,
   .select-kit.multi-select .multi-select-header,
@@ -68,6 +75,7 @@
 
   .reply-details {
     .select-kit.dropdown-select-box.composer-actions {
+      // stylelint-disable-next-line no-duplicate-selectors
       .select-kit-header {
         background: var(--primary-low);
         border-color: transparent;
@@ -93,8 +101,8 @@
   grid-template-columns: repeat(auto-fill, minmax(2em, 1fr));
   gap: 0.15em;
 
-  .btn {
-    padding: 0.4em 0 0.33em;
+  > * {
+    padding: 0.25em 0.45em !important; // overrides very specific selectors
   }
 }
 
@@ -105,4 +113,8 @@
   .avatar {
     transform: scale(75%);
   }
+}
+
+#reply-control:not(.fullscreen).hide-preview {
+  --topic-body-width: 690px;
 }

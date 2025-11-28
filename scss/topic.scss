@@ -5,10 +5,10 @@
   border: 1px solid var(--redditish-border-color);
   border-bottom: none !important;
   box-shadow: 0 1px 2px 0 rgba(21, 21, 21, 0.08);
-
-  @include custom-topic-width;
   box-sizing: border-box;
   padding: 1em 2em;
+
+  @include custom-topic-width;
 
   h1 {
     font-size: var(--font-up-4);
@@ -213,7 +213,7 @@
 .container.posts {
   grid-template-columns: 1fr 8em;
 
-  @media screen and (max-width: 924px) {
+  @media screen and (width <= 924px) {
     grid-template-columns: 1fr;
   }
 
@@ -261,4 +261,54 @@ h3.suggested-topics-message {
 
 html:not(.footer-nav-visible) #topic-progress-wrapper {
   bottom: calc(env(safe-area-inset-bottom) + 1em);
+}
+
+// topic voting support
+.regular:has(.title-voting) {
+  #topic-title .title-wrapper {
+    border-left: 1px solid var(--secondary);
+    padding-left: 1em;
+    min-height: 4.5em;
+
+    @media screen and (width >= 925px) {
+      width: 80%;
+    }
+  }
+}
+
+.title-voting {
+  float: left;
+  width: auto;
+  box-sizing: border-box;
+  margin-top: 1em;
+  max-width: unset;
+  z-index: 2;
+  padding: 0 0.5em 0 0.75em;
+
+  @media screen and (width >= 768px) {
+    padding: 0 1em 0 1.75em;
+  }
+
+  .voting-wrapper {
+    flex-direction: column;
+
+    .vote-button {
+      margin: 0;
+    }
+  }
+
+  .vote-count-wrapper {
+    height: 2em;
+    color: var(--secondary);
+    border: none;
+    font-size: var(--font-up-2);
+  }
+
+  .vote-button {
+    font-size: var(--font-down-1);
+  }
+}
+
+.voting-wrapper.show-pointer .vote-count-wrapper:not(.no-votes):hover {
+  background: transparent;
 }
