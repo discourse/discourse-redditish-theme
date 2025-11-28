@@ -13,13 +13,13 @@
   border-radius: 0.5em;
   border: 1px solid var(--redditish-border-color);
   background: var(--secondary);
-  box-shadow: 0 1px 2px 0 rgb(21, 21, 21, 0.08);
+  box-shadow: var(--box-shadow-hover);
 
   @content;
 
   .discourse-no-touch & {
     &:hover {
-      box-shadow: 0 2px 4px 0 rgb(21, 21, 21, 0.08);
+      box-shadow: var(--box-shadow-default);
     }
   }
 }
@@ -154,7 +154,7 @@ body {
 }
 
 .sidebar-wrapper .sidebar-container {
-  border-right: 1px solid rgb(99, 107, 116, 0.3);
+  border-right: 1px solid var(--redditish-border-color);
 }
 
 .sidebar-section-wrapper

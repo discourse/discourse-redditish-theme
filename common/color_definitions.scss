@@ -1,10 +1,18 @@
-$redditish-light-bg: rgb(240, 244, 248, 1);
-$redditish-border-color-light: $primary-low-mid;
-$redditish-border-color-dark: $primary-very-low;
-$redditish-border-highlight-color-light: $primary-600;
-$redditish-border-highlight-color-dark: $primary-300;
-$redditish-border-color: $primary-low !default;
-$redditish-border-highlight-color: $primary-200 !default;
+/* HealthPathway Color Palette */
+$hp-navy: #0B213B;
+$hp-blue: #76ADE4;
+$hp-almond: #E6E0DB;
+$hp-white: #F8F5F0;
+$hp-black: #141414;
+
+/* HealthPathway Color Variables */
+$redditish-light-bg: $hp-white;
+$redditish-border-color-light: $hp-almond;
+$redditish-border-color-dark: $hp-almond;
+$redditish-border-highlight-color-light: $hp-blue;
+$redditish-border-highlight-color-dark: $hp-blue;
+$redditish-border-color: $hp-almond !default;
+$redditish-border-highlight-color: $hp-blue !default;
 
 @if is-light-color-scheme() {
   $redditish-border-color: $redditish-border-color-light;
@@ -18,12 +26,11 @@ $redditish-border-highlight-color: $primary-200 !default;
   $redditish-border-highlight-color: $redditish-border-highlight-color-dark;
 }
 
-/* Overrides for HP colours */
-$redditish-background-color: rgb(240, 244, 248, 1);
-$redditish-header-bg-color: rgb(240, 244, 248, 1);
-$redditish-border-color: rgb(205, 215, 225, 1);
-$box-shadow-default: 0px 2px 4px 0px rgb(21, 21, 21, 0.08);
-$box-shadow-hover: 0px 1px 2px 0px rgb(21, 21, 21, 0.08);
+/* HealthPathway Theme Colors */
+$redditish-background-color: $hp-white;
+$redditish-header-bg-color: $hp-white;
+$box-shadow-default: 0px 2px 4px 0px rgba(11, 33, 59, 0.08);
+$box-shadow-hover: 0px 1px 2px 0px rgba(11, 33, 59, 0.08);
 
 :root {
   --redditish-bg-color: #{$redditish-background-color};
