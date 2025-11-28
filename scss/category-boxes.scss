@@ -5,7 +5,7 @@
   .category-box {
     @include custom-card;
     border: 1px solid var(--redditish-border-color);
-    box-shadow: 0 1px 2px 0 rgba(21, 21, 21, 0.08);
+    box-shadow: 0 1px 2px 0 rgb(21, 21, 21, 0.08);
 
     .category-box-inner {
       border: none;
@@ -14,7 +14,7 @@
     .discourse-no-touch & {
       &:hover {
         border: 1px solid var(--redditish-border-color);
-        box-shadow: 0 3px 6px 0 rgba(21, 21, 21, 0.08);
+        box-shadow: 0 3px 6px 0 rgb(21, 21, 21, 0.08);
       }
     }
 

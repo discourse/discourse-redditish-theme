@@ -6,7 +6,7 @@ export default {
   name: "redditish-customize-topic-list-item",
 
   initialize() {
-    withPluginApi("0.8", (api) => {
+    withPluginApi((api) => {
       api.modifyClass("component:topic-list-item", {
         pluginId: "redditish-theme",
 

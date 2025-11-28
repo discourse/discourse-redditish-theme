@@ -1,8 +1,9 @@
+{{! template-lint-disable require-strict-mode }}
 <div class="category-boxes with-logos with-subcategories">
   {{#each this.categories as |c|}}
     <PluginOutlet
       @name="category-box-before-each-box"
-      @outletArgs={{hash category=c}}
+      @outletArgs={{lazyHash category=c}}
     />
 
     <div
@@ -92,18 +93,18 @@
 
         <PluginOutlet
           @name="category-box-below-each-category"
-          @outletArgs={{hash category=c}}
+          @outletArgs={{lazyHash category=c}}
         />
       </div>
     </div>
 
     <PluginOutlet
       @name="category-box-after-each-box"
-      @outletArgs={{hash category=c}}
+      @outletArgs={{lazyHash category=c}}
     />
   {{/each}}
 
   <PluginOutlet
     @name="category-boxes-after-boxes"
-    @outletArgs={{hash category=this.c}}
+    @outletArgs={{lazyHash category=this.c}}
   /></div>

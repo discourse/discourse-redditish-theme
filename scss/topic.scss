@@ -4,7 +4,7 @@
   border-radius: 0.5em 0.5em 0 0;
   border: 1px solid var(--redditish-border-color);
   border-bottom: none !important;
-  box-shadow: 0 1px 2px 0 rgba(21, 21, 21, 0.08);
+  box-shadow: 0 1px 2px 0 rgb(21, 21, 21, 0.08);
   box-sizing: border-box;
   padding: 1em 2em;
 
@@ -51,6 +51,33 @@
   max-width: 10%;
   box-sizing: border-box;
   float: left;
+
+  @media screen and (width >= 768px) {
+    width: auto;
+    max-width: unset;
+    z-index: 2;
+    padding: 0 1em 0 1.75em;
+    margin-top: 1em;
+  }
+
+  .voting-wrapper {
+    flex-direction: column;
+
+    .vote-button {
+      margin: 0;
+    }
+  }
+
+  .vote-count-wrapper {
+    height: 2em;
+    color: var(--secondary);
+    border: none;
+    font-size: var(--font-up-2);
+  }
+
+  .vote-button {
+    font-size: var(--font-down-1);
+  }
 }
 
 .vote-count-wrapper {
@@ -273,39 +300,6 @@ html:not(.footer-nav-visible) #topic-progress-wrapper {
     @media screen and (width >= 925px) {
       width: 80%;
     }
-  }
-}
-
-.title-voting {
-  float: left;
-  width: auto;
-  box-sizing: border-box;
-  margin-top: 1em;
-  max-width: unset;
-  z-index: 2;
-  padding: 0 0.5em 0 0.75em;
-
-  @media screen and (width >= 768px) {
-    padding: 0 1em 0 1.75em;
-  }
-
-  .voting-wrapper {
-    flex-direction: column;
-
-    .vote-button {
-      margin: 0;
-    }
-  }
-
-  .vote-count-wrapper {
-    height: 2em;
-    color: var(--secondary);
-    border: none;
-    font-size: var(--font-up-2);
-  }
-
-  .vote-button {
-    font-size: var(--font-down-1);
   }
 }
 
