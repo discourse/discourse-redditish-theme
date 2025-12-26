@@ -27,7 +27,7 @@ export default class SidebarWelcome extends Component {
       action: Composer.CREATE_TOPIC,
       draftKey: Composer.NEW_TOPIC_KEY,
       categoryId: this.args.category?.id,
-      tags: this.args.tag?.id,
+      tags: this.args.tag?.name,
     });
   }
 

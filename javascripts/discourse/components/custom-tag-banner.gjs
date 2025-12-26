@@ -10,7 +10,7 @@ export default class CustomTagBanner extends Component {
   }
 
   get tag() {
-    return this.router.currentRoute?.params?.tag_id;
+    return this.router.currentRoute?.params?.tag_name;
   }
 
   <template>
