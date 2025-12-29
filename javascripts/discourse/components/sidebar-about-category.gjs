@@ -53,7 +53,7 @@ export default class SidebarAboutCategory extends Component {
       action: Composer.CREATE_TOPIC,
       draftKey: Composer.NEW_TOPIC_KEY,
       categoryId: this.category?.id,
-      tags: this.tag?.id,
+      tags: this.tag?.name,
     });
   }
 

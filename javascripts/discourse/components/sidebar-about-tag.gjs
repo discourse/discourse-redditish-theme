@@ -26,8 +26,8 @@ export default class SidebarAboutTag extends Component {
     return this.tag && !this.category;
   }
 
-  get tagId() {
-    return this.router.currentRoute.params?.tag_id;
+  get tagName() {
+    return this.router.currentRoute.params?.tag_name;
   }
 
   get category() {
@@ -42,7 +42,7 @@ export default class SidebarAboutTag extends Component {
 
   @action
   async getTagInfo() {
-    const tag = this.tagId;
+    const tag = this.tagName;
     if (tag) {
       const result = await this.store.find("tag-info", tag);
       this.tag = result;
@@ -61,7 +61,7 @@ export default class SidebarAboutTag extends Component {
   async getTagNotificationLevel() {
     this.tagNotification = await this.store.find(
       "tagNotification",
-      this.tagId.toLowerCase()
+      this.tagName.toLowerCase()
     );
   }
 
@@ -95,12 +95,12 @@ export default class SidebarAboutTag extends Component {
   }
 
   <template>
-    {{#if this.tagId}}
+    {{#if this.tagName}}
       <div
         {{didInsert this.getTagInfo}}
-        {{didUpdate this.getTagInfo this.tagId}}
+        {{didUpdate this.getTagInfo this.tagName}}
         {{didInsert this.getTagNotificationLevel}}
-        {{didUpdate this.getTagNotificationLevel this.tagId}}
+        {{didUpdate this.getTagNotificationLevel this.tagName}}
       >
         {{#if this.shouldShow}}
           {{#if (or this.tag.description this.currentUser)}}
