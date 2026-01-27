@@ -5,7 +5,7 @@
   .category-box {
     @include custom-card;
 
-    // stylelint-disable-next-line no-duplicate-selectors
+    // stylelint-disable-next-line block-no-redundant-nested-style-rules
     & {
       border-top: 1px solid transparent;
       border-right: 1px solid transparent;
