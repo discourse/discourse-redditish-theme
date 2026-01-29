@@ -25,6 +25,8 @@
   width: calc(100% - 8em);
 
   @media screen and (width <= 924px) {
+    // incorrect lint rule, see: https://github.com/stylelint-scss/stylelint-config-recommended-scss/issues/369
+    /* stylelint-disable-next-line no-invalid-position-declaration */
     width: 100%;
   }
 }

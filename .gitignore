@@ -1,2 +1,3 @@
 .discourse-site
 node_modules
+.eslintcache
