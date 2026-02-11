@@ -60,7 +60,7 @@ body {
   /* pepesilva.jpg */
   &.tags-page,
   &[class*="navigation-"]:not([class*="archetype-"]),
-  &[class*="category-"]:not([class*="archetype-"]) {
+  &[class*="navigation-category"]:not([class*="archetype-"]) {
     #main-outlet-wrapper {
       grid-template-areas:
         "category-banner category-banner category-banner category-banner category-banner category-banner"
@@ -94,7 +94,7 @@ body {
 
   &.has-sidebar-page.tags-page,
   &.has-sidebar-page[class*="navigation-"]:not([class*="archetype-"]),
-  &.has-sidebar-page[class*="category-"]:not([class*="archetype-"]) {
+  &.has-sidebar-page[class*="navigation-category"]:not([class*="archetype-"]) {
     #main-outlet-wrapper {
       grid-template-areas:
         "sidebar category-banner category-banner category-banner category-banner category-banner"
@@ -127,11 +127,11 @@ body {
 .btn-primary,
 .btn {
   &:not(
-    .btn-icon,
-    [class*="popup-menu-btn"],
-    [class*="post-action-menu__"],
-    [class*="topic-map__"]
-  ) {
+      .btn-icon,
+      [class*="popup-menu-btn"],
+      [class*="post-action-menu__"],
+      [class*="topic-map__"]
+    ) {
     padding: 0.5em 1em;
   }
 }
