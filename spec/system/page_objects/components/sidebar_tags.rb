@@ -5,10 +5,10 @@ module PageObjects
     class SidebarTags < PageObjects::Components::Base
       SELECTOR = ".custom-right-sidebar_tags"
 
-      def has_tag_link?(tag_name:, category_slug:)
+      def has_tag_link?(tag:, category:)
         has_css?(
-          "#{SELECTOR} .discourse-tag[data-tag-name='#{tag_name}'][href*='/tags/c/#{category_slug}/#{tag_name}']",
-          text: tag_name,
+          "#{SELECTOR} .discourse-tag[data-tag-name='#{tag.name}'][href='/tags/c/#{category.slug}/#{category.id}/#{tag.slug}/#{tag.id}']",
+          text: tag.name,
         )
       end
 
