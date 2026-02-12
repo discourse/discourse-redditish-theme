@@ -10,7 +10,7 @@ export default class CustomTagBanner extends Component {
   }
 
   get tag() {
-    return this.router.currentRoute?.params?.tag_name;
+    return this.router.currentRoute?.attributes?.tag;
   }
 
   <template>
@@ -20,9 +20,9 @@ export default class CustomTagBanner extends Component {
           <div class="custom-tag-banner_meta">
             <div class="custom-tag-banner_meta-text">
               <h1>
-                <a href="/tag/{{this.tag}}">
+                <a href={{this.tag.url}}>
                   {{icon "tag"}}
-                  {{this.tag}}
+                  {{this.tag.name}}
                 </a>
               </h1>
             </div>

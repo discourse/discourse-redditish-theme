@@ -21,8 +21,8 @@ RSpec.describe "Category top tags in sidebar", system: true do
   it "displays category top tags with correct links" do
     visit("/c/#{category.slug}/#{category.id}")
 
-    expect(sidebar_tags).to have_tag_link(tag_name: tag1.name, category_slug: category.slug)
-    expect(sidebar_tags).to have_tag_link(tag_name: tag2.name, category_slug: category.slug)
+    expect(sidebar_tags).to have_tag_link(tag: tag1, category: category)
+    expect(sidebar_tags).to have_tag_link(tag: tag2, category: category)
   end
 
   it "does not display tags section when category has no top tags" do

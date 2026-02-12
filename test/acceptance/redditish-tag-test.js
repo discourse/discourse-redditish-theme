@@ -13,17 +13,12 @@ acceptance("Redditish Theme | tag routes", function (needs) {
   });
 
   needs.pretender((server, helper) => {
-    server.get("/tag/important/l/latest.json", () => {
-      return helper.response(
-        cloneJSON(discoveryFixture["/tag/important/l/latest.json"])
-      );
-    });
-
-    server.get("/tag/:tag_name/info", () => {
+    server.get("/tag/1/info.json", () => {
       return helper.response({
         tag_info: {
           id: 1,
           name: "important",
+          slug: "important",
           description: "Important topics for discussion",
           topic_count: 5,
           pm_only: false,
@@ -33,10 +28,16 @@ acceptance("Redditish Theme | tag routes", function (needs) {
       });
     });
 
-    server.get("/tag/:tag_name/notifications", () => {
+    server.get("/tag/1/l/latest.json", () => {
+      return helper.response(
+        cloneJSON(discoveryFixture["/tag/important/l/latest.json"])
+      );
+    });
+
+    server.get("/tag/1/notifications.json", () => {
       return helper.response({
         tag_notification: {
-          id: "important",
+          id: 1,
           notification_level: 1,
         },
       });
@@ -44,7 +45,7 @@ acceptance("Redditish Theme | tag routes", function (needs) {
   });
 
   test("displays tag banner with tag name", async function (assert) {
-    await visit("/tag/important");
+    await visit("/tag/important/1");
 
     assert
       .dom(".custom-tag-banner h1")
