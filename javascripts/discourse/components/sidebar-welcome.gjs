@@ -2,10 +2,10 @@ import Component from "@glimmer/component";
 import { action } from "@ember/object";
 import { service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
-import { and } from "truth-helpers";
 import DButton from "discourse/components/d-button";
 import basePath from "discourse/helpers/base-path";
 import Composer from "discourse/models/composer";
+import { and } from "discourse/truth-helpers";
 import { i18n } from "discourse-i18n";
 import SidebarLatestTopics from "./sidebar-latest-topics";
 

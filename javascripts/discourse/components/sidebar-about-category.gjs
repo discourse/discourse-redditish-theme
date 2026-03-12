@@ -4,15 +4,15 @@ import { action } from "@ember/object";
 import didInsert from "@ember/render-modifiers/modifiers/did-insert";
 import { service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
-import { or } from "truth-helpers";
 import DButton from "discourse/components/d-button";
 import categoryLink from "discourse/helpers/category-link";
 import { bind } from "discourse/lib/decorators";
 import { NotificationLevels } from "discourse/lib/notification-levels";
 import { getCategoryAndTagUrl } from "discourse/lib/url";
 import Composer from "discourse/models/composer";
+import CategoryNotificationsButton from "discourse/select-kit/components/category-notifications-button";
+import { or } from "discourse/truth-helpers";
 import { i18n } from "discourse-i18n";
-import CategoryNotificationsButton from "select-kit/components/category-notifications-button";
 import AddToSidebar from "./add-to-sidebar";
 
 export default class SidebarAboutCategory extends Component {

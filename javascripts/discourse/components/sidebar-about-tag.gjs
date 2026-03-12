@@ -6,11 +6,11 @@ import didInsert from "@ember/render-modifiers/modifiers/did-insert";
 import didUpdate from "@ember/render-modifiers/modifiers/did-update";
 import { service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
-import { or } from "truth-helpers";
 import DButton from "discourse/components/d-button";
 import Composer from "discourse/models/composer";
+import TagNotificationsButton from "discourse/select-kit/components/tag-notifications-button";
+import { or } from "discourse/truth-helpers";
 import { i18n } from "discourse-i18n";
-import TagNotificationsButton from "select-kit/components/tag-notifications-button";
 import AddToSidebar from "./add-to-sidebar";
 
 export default class SidebarAboutTag extends Component {
