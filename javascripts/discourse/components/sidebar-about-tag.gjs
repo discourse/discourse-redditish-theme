@@ -6,6 +6,7 @@ import didInsert from "@ember/render-modifiers/modifiers/did-insert";
 import didUpdate from "@ember/render-modifiers/modifiers/did-update";
 import { service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
+import { ajax } from "discourse/lib/ajax";
 import DButton from "discourse/components/d-button";
 import Composer from "discourse/models/composer";
 import TagNotificationsButton from "discourse/select-kit/components/tag-notifications-button";
@@ -43,8 +44,8 @@ export default class SidebarAboutTag extends Component {
   @action
   async getTagInfo() {
     if (this.routeTag) {
-      const result = await this.store.find("tag-info", this.routeTag.id);
-      this.tag = result;
+      const result = await ajax(`/tag/${this.routeTag.id}/info.json`);
+      this.tag = result.tag_info;
     } else {
       this.tag = null;
     }

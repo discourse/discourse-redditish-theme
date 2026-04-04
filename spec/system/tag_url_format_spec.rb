@@ -25,6 +25,16 @@ RSpec.describe "Tag URL format", system: true do
     expect(tag_banner).to have_tag_link(tag)
   end
 
+  it "displays tag description in sidebar" do
+    tag.update!(description: "Important topics for discussion")
+    visit("/tag/#{tag.name}")
+
+    expect(page).to have_css(
+      ".custom-right-sidebar_tag-about p",
+      text: "Important topics for discussion",
+    )
+  end
+
   it "displays category top tags with correct link format" do
     visit("/c/#{category.slug}/#{category.id}")
 
