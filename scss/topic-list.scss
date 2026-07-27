@@ -17,6 +17,10 @@ body.category,
   }
 }
 
+.d-combo-button.topic-create-button__combo {
+  display: none;
+}
+
 .topic-above-suggested-outlet,
 .related-messages-wrapper,
 .suggested-topics-wrapper {

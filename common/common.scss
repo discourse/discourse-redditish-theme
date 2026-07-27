@@ -211,3 +211,8 @@ html.composer-open #main-outlet {
 .welcome-banner__title {
   font-size: var(--font-up-4);
 }
+
+// calendar on topic lists
+.fc-view-harness {
+  background: var(--secondary);
+}
