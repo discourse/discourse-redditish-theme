@@ -155,6 +155,14 @@ export default class Item extends Component {
       {{/unless}}
 
       <div class="custom-topic-layout_bottom-bar">
+        {{#if settings.show_like_count}}
+          <span class="like-count">
+            {{icon "heart"}}
+            {{@outletArgs.topic.like_count}}
+            {{i18n "likes"}}
+          </span>
+        {{/if}}
+
         <span class="reply-count">
           {{icon "reply"}}
           {{@outletArgs.topic.replyCount}}

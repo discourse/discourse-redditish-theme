@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 1em;
-  margin-top: 1.5em;
+  margin-top: 1em;
   grid-area: sidebar2;
   top: calc(var(--header-offset) + 1em);
   align-self: start;
@@ -152,6 +152,33 @@
 
       .link-top-line {
         font-size: var(--font-0);
+      }
+    }
+
+    &-topics-placeholder {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45em;
+      padding: 1em 0;
+
+      .placeholder-line {
+        height: 0.7em;
+        border-radius: 0.25em;
+
+        // core only gives .placeholder-animation a background inside a
+        // prefers-reduced-motion: no-preference query, so these would be
+        // invisible otherwise. Scoped to reduce so it can't beat the gradient
+        @media (prefers-reduced-motion: reduce) {
+          background: var(--primary-low);
+        }
+
+        &.--title {
+          height: 0.9em;
+        }
+
+        &.--short {
+          width: 60%;
+        }
       }
     }
 

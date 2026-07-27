@@ -1,3 +1,7 @@
 hide_topic_footer_controls:
   default: true
   description: "Hides the reply/bookmark/share buttons at the bottom of each topic"
+
+show_like_count:
+  default: false
+  description: "Shows the like count before the reply count in the topic list"

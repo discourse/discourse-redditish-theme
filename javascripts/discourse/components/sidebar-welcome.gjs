@@ -49,9 +49,7 @@ export default class SidebarWelcome extends Component {
           />
         {{/if}}
       </div>
-      <div class="custom-right-sidebar_recent">
-        <SidebarLatestTopics />
-      </div>
+      <SidebarLatestTopics />
     {{/if}}
   </template>
 }
