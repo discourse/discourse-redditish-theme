@@ -38,7 +38,7 @@ acceptance("Redditish Theme | custom topic list item", function (needs) {
     // pins the poster payload the outlet hands us
     assert
       .dom(".topic-list-item .custom-topic-layout_meta-posted a")
-      .hasText("@sam");
+      .hasText("@reyman64");
   });
 
   test("opens the topic when the row is clicked", async function (assert) {

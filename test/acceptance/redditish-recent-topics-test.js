@@ -44,7 +44,7 @@ acceptance("Redditish Theme | recent topics sidebar", function (needs) {
       .dom(
         ".custom-right-sidebar_recent-topics-wrapper:first-child .custom-topic-layout_meta-posted a"
       )
-      .hasText("@sam");
+      .hasText("@reyman64");
   });
 
   test("falls back to hot topics when there is no read history", async function (assert) {
