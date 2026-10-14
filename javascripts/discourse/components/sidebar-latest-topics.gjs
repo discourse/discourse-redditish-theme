@@ -1,10 +1,11 @@
 import Component from "@glimmer/component";
 import { service } from "@ember/service";
 import { i18n } from "discourse-i18n";
+import { TOPIC_COUNT } from "../services/recent-topics";
 import TopicCard from "./topic-card";
 
 // one per topic we render, so the sidebar reserves its height while loading
-const PLACEHOLDERS = [1, 2, 3];
+const PLACEHOLDERS = Array.from({ length: TOPIC_COUNT });
 
 export default class LatestTopicsSidebar extends Component {
   @service recentTopics;

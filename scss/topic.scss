@@ -215,7 +215,7 @@
 .posts-wrapper {
   @include custom-card {
     border-radius: 0 0 4px 4px;
-    border-top: none !important;
+    border-top: none;
     padding: 1em 2em 2em;
   }
 }

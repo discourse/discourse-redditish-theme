@@ -2,7 +2,7 @@ import { tracked } from "@glimmer/tracking";
 import Service, { service } from "@ember/service";
 
 const STORAGE_KEY = "deddit_recent_topics";
-const TOPIC_COUNT = 3;
+export const TOPIC_COUNT = 3;
 
 const CACHE_DURATION = 5 * 60 * 1000;
 

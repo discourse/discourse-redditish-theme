@@ -11,11 +11,13 @@ export default class CustomCategoryBanner extends Component {
   }
 
   get bannerBg() {
-    return htmlSafe(
-      `background: url("${this.category.uploaded_background?.url}");
-       background-size: cover; 
-       background-position: center center;;`
-    );
+    const url = this.category.uploaded_background?.url;
+
+    if (!url) {
+      return null;
+    }
+
+    return htmlSafe(`background: url("${url}") center center / cover;`);
   }
 
   get categoryBgColor() {
@@ -24,22 +26,9 @@ export default class CustomCategoryBanner extends Component {
     );
   }
 
+  // text_color is stored as bare hex, without the #
   get categoryTextColor() {
-    return htmlSafe(`color: ${this.category.text_color};`);
-  }
-
-  get categorySlug() {
-    return this.category.slug || this.generateSlug(this.category.name);
-  }
-
-  generateSlug(name) {
-    return name
-      .toLowerCase() // Convert to lowercase
-      .replace(/\s+/g, "-") // Replace spaces with hyphens
-      .replace(/[^\w\-]+/g, "") // Remove all non-word characters
-      .replace(/\-\-+/g, "-") // Replace multiple hyphens with a single hyphen
-      .replace(/^-+/, "") // Trim hyphens from the start
-      .replace(/-+$/, ""); // Trim hyphens from the end
+    return htmlSafe(`color: #${this.category.text_color};`);
   }
 
   <template>
@@ -57,10 +46,7 @@ export default class CustomCategoryBanner extends Component {
           {{#unless this.category.uploaded_logo.url}}
             <div class="custom-category-banner_meta-text">
               <h1>
-                <a
-                  href="/c/{{this.categorySlug}}"
-                  style={{this.categoryTextColor}}
-                >
+                <a href={{this.category.url}} style={{this.categoryTextColor}}>
                   {{this.category.name}}
                 </a>
               </h1>

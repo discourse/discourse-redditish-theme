@@ -25,6 +25,12 @@ export default class SidebarAboutTag extends Component {
   @service currentUser;
   @service routeContext;
 
+  get adminTip() {
+    return i18n(themePrefix("about_tag_admin_tip_description"), {
+      editUrl: `${this.routeContext.tag.url}/edit`,
+    });
+  }
+
   get tagId() {
     return this.routeContext.category ? null : this.routeContext.tag?.id;
   }
@@ -82,6 +88,9 @@ export default class SidebarAboutTag extends Component {
             {{#if tag.description}}
               <h3>{{i18n (themePrefix "about_tag")}}</h3>
               <p>{{htmlSafe tag.description}}</p>
+            {{else if this.currentUser.canEditTags}}
+              <h3>{{i18n (themePrefix "about_admin_tip_headline")}}</h3>
+              <p>{{htmlSafe this.adminTip}}</p>
             {{/if}}
             {{#if this.currentUser}}
               <div class="custom-right-sidebar_controls">

@@ -7,7 +7,6 @@
     "discourse": "npm:@discourse/types@2026.3.0-887c5be4",
     "ember-template-lint": "7.9.3",
     "eslint": "9.39.2",
-    "eslint-config-discourse": "latest",
     "lint-to-the-future": "^2.6.4",
     "lint-to-the-future-eslint": "^3.3.0",
     "prettier": "3.8.1",
