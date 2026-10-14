@@ -117,22 +117,11 @@
       border-radius: 0;
       padding: 1em 0;
 
-      .link-bottom-line,
-      .bullet-separator,
-      .share-toggle,
-      &_excerpt {
-        display: none;
-      }
-
       &_meta {
         display: flex;
         gap: 0.25em;
         margin-bottom: 0;
         padding-left: 0;
-
-        .badge-wrapper {
-          display: none;
-        }
 
         [data-user-card] {
           display: none;

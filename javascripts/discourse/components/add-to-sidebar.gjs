@@ -1,105 +1,74 @@
 import Component from "@glimmer/component";
-import { tracked } from "@glimmer/tracking";
-import { action, set } from "@ember/object";
-import { dependentKeyCompat } from "@ember/object/compat";
+import { action, get, set } from "@ember/object";
 import { service } from "@ember/service";
 import DButton from "discourse/components/d-button";
+import { popupAjaxError } from "discourse/lib/ajax-error";
+import { or } from "discourse/truth-helpers";
 
 export default class AddToSidebar extends Component {
   @service currentUser;
 
-  @tracked saved = false;
-  @tracked sidebarChanged = false;
-  saveAttrNames = ["sidebar_category_ids", "sidebar_tag_names"];
-
-  get shouldNotRender() {
-    const category = this.args.category;
-    const tag = this.args.tag;
-    return (category && tag) || (!category && !tag);
-  }
-
-  @dependentKeyCompat
   get isInSidebar() {
-    // need to do this to get DButton to update
-    this.sidebarChanged;
-    const category = this.args.category;
-    const tag = this.args.tag;
+    const { category, tag } = this.args;
 
-    return (
-      (category &&
-        this.currentUser.sidebar_category_ids?.includes(category.id)) ||
-      (tag &&
-        this.currentUser.sidebar_tags.some(
-          (savedTag) => savedTag.name === tag.name
-        ))
+    if (category) {
+      return get(this.currentUser, "sidebar_category_ids")?.includes(
+        category.id
+      );
+    }
+
+    return get(this.currentUser, "sidebar_tags")?.some(
+      (savedTag) => savedTag.name === tag.name
     );
   }
 
-  get buttonIcon() {
-    return this.isInSidebar ? "star" : "far-star";
-  }
-
   @action
-  toggleInSidebar() {
-    let sidebarCategories = this.currentUser.sidebar_category_ids;
-    let sidebarTags = this.currentUser.sidebar_tags;
+  async toggleInSidebar() {
+    const { category, tag } = this.args;
 
-    if (this.args.category) {
-      let categoryId = this.args.category.id;
-      if (sidebarCategories.includes(categoryId)) {
-        sidebarCategories = sidebarCategories.filter((id) => id !== categoryId);
-      } else {
-        sidebarCategories = [...sidebarCategories, categoryId];
-      }
+    if (category) {
+      const ids = this.currentUser.sidebar_category_ids ?? [];
 
-      set(this.currentUser, "sidebar_category_ids", sidebarCategories);
-    } else if (this.args.tag) {
-      let sidebarTagNames = sidebarTags.map((tag) => tag.name);
-      let tagIsMatched = sidebarTags.some(
-        (tag) => tag.name === this.args.tag.name
+      set(
+        this.currentUser,
+        "sidebar_category_ids",
+        this.isInSidebar
+          ? ids.filter((id) => id !== category.id)
+          : [...ids, category.id]
       );
+    } else {
+      const names = (this.currentUser.sidebar_tags ?? []).map((t) => t.name);
 
-      if (tagIsMatched) {
-        sidebarTagNames = sidebarTagNames.filter(
-          (name) => name !== this.args.tag.name
-        );
-      } else {
-        sidebarTagNames.push(this.args.tag.name);
-      }
-
-      sidebarTags = sidebarTagNames.map((name) => {
-        return { name };
-      });
-      set(this.currentUser, "sidebar_tag_names", sidebarTagNames);
+      set(
+        this.currentUser,
+        "sidebar_tag_names",
+        this.isInSidebar
+          ? names.filter((name) => name !== tag.name)
+          : [...names, tag.name]
+      );
     }
 
-    return this.currentUser
-      .save(this.saveAttrNames)
-      .then((result) => {
-        this.saved = true;
+    try {
+      const result = await this.currentUser.save([
+        "sidebar_category_ids",
+        "sidebar_tag_names",
+      ]);
 
-        if (result.user.sidebar_tags) {
-          set(this.currentUser, "sidebar_tags", result.user.sidebar_tags);
-        }
-
-        // Update after the currentUser properties change
-        this.sidebarChanged = !this.sidebarChanged;
-      })
-      .catch((error) => {
-        // eslint-disable-next-line no-console
-        console.error("Error updating sidebar:", error);
-        this.saved = false;
-      })
-      .finally(() => {});
+      if (result.user.sidebar_tags) {
+        set(this.currentUser, "sidebar_tags", result.user.sidebar_tags);
+      }
+    } catch (error) {
+      popupAjaxError(error);
+    }
   }
 
   <template>
-    {{#unless this.shouldNotRender}}
+    {{#if (or @category @tag)}}
       <DButton
         @action={{this.toggleInSidebar}}
+        @icon={{if this.isInSidebar "star" "far-star"}}
         class="btn-default add-to-sidebar {{if this.isInSidebar 'in-sidebar'}}"
-        @icon={{this.buttonIcon}}
       />
-    {{/unless}}
+    {{/if}}
   </template>
 }

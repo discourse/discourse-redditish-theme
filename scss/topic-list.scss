@@ -242,10 +242,6 @@ div.education {
   }
 }
 
-.custom-post-bar:empty {
-  display: none;
-}
-
 .custom-post-bar-contents {
   display: flex;
   align-items: center;
@@ -258,11 +254,21 @@ div.education {
     height: 38px;
   }
 
-  input {
-    width: 100%;
+  .custom-post-bar-input {
+    flex: 1 1 auto;
+    min-width: 0;
     margin: 0;
+    padding: 0.5em 0.65em;
+    border: 1px solid var(--primary-low-mid);
+    border-radius: var(--d-input-border-radius);
+    background: var(--secondary);
+    color: var(--primary-medium);
+    font-size: var(--font-0);
+    text-align: left;
+    cursor: text;
 
-    &:hover {
+    &:hover,
+    &:focus-visible {
       border-color: var(--tertiary);
     }
   }
