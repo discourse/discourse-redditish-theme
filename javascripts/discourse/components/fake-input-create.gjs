@@ -1,59 +1,49 @@
 import Component from "@glimmer/component";
-import { Input } from "@ember/component";
 import { on } from "@ember/modifier";
 import { action } from "@ember/object";
 import { service } from "@ember/service";
 import TopicDraftsDropdown from "discourse/components/topic-drafts-dropdown";
 import avatar from "discourse/helpers/avatar";
-import Composer from "discourse/models/composer";
-import { and } from "discourse/truth-helpers";
 import { i18n } from "discourse-i18n";
 
 export default class FakeInputCreate extends Component {
   @service composer;
-  @service router;
   @service currentUser;
-
-  get hasDrafts() {
-    return this.currentUser.get("draft_count");
-  }
-
-  get category() {
-    return this.router.currentRoute?.attributes?.category;
-  }
-
-  get tag() {
-    return this.router.currentRoute?.attributes?.tag;
-  }
+  @service routeContext;
 
   @action
-  customCreateTopic() {
-    if (document.querySelector(".d-editor-input")) {
-      document.querySelector(".d-editor-input").focus();
-    } else {
-      this.composer.open({
-        action: Composer.CREATE_TOPIC,
-        draftKey: Composer.NEW_TOPIC_KEY,
-        categoryId: this.category?.id,
-        tags: this.tag?.name,
-      });
+  createTopic() {
+    const editor = document.querySelector(".d-editor-input");
+
+    if (editor) {
+      editor.focus();
+      return;
     }
+
+    this.composer.openNewTopic({
+      category: this.routeContext.category,
+      tags: this.routeContext.tag?.name,
+    });
   }
 
   <template>
-    {{#if (and this.currentUser this.currentUser.can_create_topic)}}
-      <div class="custom-post-bar-contents">
-        <a href="/u/{{this.currentUser.username}}">
-          {{avatar this.currentUser imageSize="medium"}}
-        </a>
-        <Input
-          @type="text"
-          placeholder={{i18n (themePrefix "post_input_placeholder")}}
-          {{on "click" this.customCreateTopic}}
-        />
-        {{#if this.hasDrafts}}
-          <TopicDraftsDropdown />
-        {{/if}}
+    {{#if this.currentUser.can_create_topic}}
+      <div class="custom-post-bar">
+        <div class="custom-post-bar-contents">
+          <a href="/u/{{this.currentUser.username}}">
+            {{avatar this.currentUser imageSize="medium"}}
+          </a>
+          <button
+            type="button"
+            class="custom-post-bar-input"
+            {{on "click" this.createTopic}}
+          >
+            {{i18n (themePrefix "post_input_placeholder")}}
+          </button>
+          {{#if this.currentUser.draft_count}}
+            <TopicDraftsDropdown />
+          {{/if}}
+        </div>
       </div>
     {{/if}}
   </template>

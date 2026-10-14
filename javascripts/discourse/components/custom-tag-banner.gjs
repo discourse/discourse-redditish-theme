@@ -3,26 +3,18 @@ import { service } from "@ember/service";
 import icon from "discourse/helpers/d-icon";
 
 export default class CustomTagBanner extends Component {
-  @service router;
-
-  get category() {
-    return this.router.currentRoute?.attributes?.category;
-  }
-
-  get tag() {
-    return this.router.currentRoute?.attributes?.tag;
-  }
+  @service routeContext;
 
   <template>
-    {{#unless this.category}}
-      {{#if this.tag}}
+    {{#unless this.routeContext.category}}
+      {{#if this.routeContext.tag}}
         <div class="custom-tag-banner">
           <div class="custom-tag-banner_meta">
             <div class="custom-tag-banner_meta-text">
               <h1>
-                <a href={{this.tag.url}}>
+                <a href={{this.routeContext.tag.url}}>
                   {{icon "tag"}}
-                  {{this.tag.name}}
+                  {{this.routeContext.tag.name}}
                 </a>
               </h1>
             </div>

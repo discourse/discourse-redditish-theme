@@ -4,14 +4,10 @@ import { htmlSafe } from "@ember/template";
 import CategoryLogo from "discourse/components/category-logo";
 
 export default class CustomCategoryBanner extends Component {
-  @service router;
+  @service routeContext;
 
   get category() {
-    return this.router.currentRoute?.attributes?.category;
-  }
-
-  get tag() {
-    return this.router.currentRoute?.attributes?.tag;
+    return this.routeContext.category;
   }
 
   get bannerBg() {

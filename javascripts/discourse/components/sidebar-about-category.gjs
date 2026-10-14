@@ -1,30 +1,23 @@
 import Component from "@glimmer/component";
-import { tracked } from "@glimmer/tracking";
-import { action } from "@ember/object";
-import didInsert from "@ember/render-modifiers/modifiers/did-insert";
+import { action, get } from "@ember/object";
 import { service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
-import DButton from "discourse/components/d-button";
 import categoryLink from "discourse/helpers/category-link";
-import { bind } from "discourse/lib/decorators";
 import { NotificationLevels } from "discourse/lib/notification-levels";
 import { getCategoryAndTagUrl } from "discourse/lib/url";
-import Composer from "discourse/models/composer";
 import CategoryNotificationsButton from "discourse/select-kit/components/category-notifications-button";
 import { or } from "discourse/truth-helpers";
 import { i18n } from "discourse-i18n";
 import AddToSidebar from "./add-to-sidebar";
+import CreateTopicButton from "./create-topic-button";
 
 export default class SidebarAboutCategory extends Component {
   @service site;
-  @service router;
   @service currentUser;
-  @service composer;
-
-  @tracked categoryNotificationLevel;
+  @service routeContext;
 
   get category() {
-    return this.router.currentRoute?.attributes?.category;
+    return this.routeContext.category;
   }
 
   get topTags() {
@@ -34,47 +27,27 @@ export default class SidebarAboutCategory extends Component {
     }));
   }
 
-  get showTopicsForSubCategory() {
-    if (!this.category.subcategories) {
-      return false;
-    }
-
-    return this.category.subcategory_list_style.includes("topics");
-  }
-
   get linkedDescription() {
     return i18n(themePrefix("about_category_admin_tip_description"), {
       topicUrl: this.category.topic_url,
     });
   }
 
-  @action
-  async changeCategoryNotificationLevel(notificationLevel) {
-    await this.category.setNotification(notificationLevel);
-    this.updateCategoryNotificationLevel();
-  }
+  get categoryNotificationLevel() {
+    const indirectlyMuted = this.currentUser
+      ? get(this.currentUser, "indirectly_muted_category_ids")
+      : null;
 
-  @action
-  customCreateTopic() {
-    this.composer.open({
-      action: Composer.CREATE_TOPIC,
-      draftKey: Composer.NEW_TOPIC_KEY,
-      categoryId: this.category?.id,
-      tags: this.tag?.name,
-    });
-  }
-
-  @bind
-  updateCategoryNotificationLevel() {
-    if (
-      this.currentUser?.indirectly_muted_category_ids?.includes(
-        this.category.id
-      )
-    ) {
-      this.categoryNotificationLevel = NotificationLevels.MUTED;
-    } else {
-      this.categoryNotificationLevel = this.category.notification_level;
+    if (indirectlyMuted?.includes(this.category.id)) {
+      return NotificationLevels.MUTED;
     }
+
+    return get(this.category, "notification_level");
+  }
+
+  @action
+  changeCategoryNotificationLevel(notificationLevel) {
+    return this.category.setNotification(notificationLevel);
   }
 
   <template>
@@ -94,26 +67,15 @@ export default class SidebarAboutCategory extends Component {
             {{/if}}
           {{/if}}
           {{#if this.currentUser}}
-            <div
-              class="custom-right-sidebar_controls"
-              {{didInsert this.updateCategoryNotificationLevel}}
-            >
-              {{#if this.currentUser.can_create_topic}}
-                <DButton
-                  class="btn-default"
-                  @id="custom-create-topic"
-                  @action={{this.customCreateTopic}}
-                  @icon="plus"
-                  @translatedLabel={{i18n "topic.create"}}
-                />
-              {{/if}}
+            <div class="custom-right-sidebar_controls">
+              <CreateTopicButton class="btn-default" @icon="plus" />
               <CategoryNotificationsButton
                 @value={{this.categoryNotificationLevel}}
                 @category={{this.category}}
                 @onChange={{this.changeCategoryNotificationLevel}}
               />
 
-              <AddToSidebar @tag={{this.tag}} @category={{this.category}} />
+              <AddToSidebar @category={{this.category}} />
             </div>
           {{/if}}
 

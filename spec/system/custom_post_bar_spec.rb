@@ -10,10 +10,10 @@ RSpec.describe "Creating a topic from the custom post bar", system: true do
 
   before { sign_in(user) }
 
-  it "opens the composer when the fake input is clicked" do
+  it "opens the composer when the post bar is clicked" do
     visit("/latest")
 
-    find(".custom-post-bar-contents input").click
+    find(".custom-post-bar-input").click
 
     expect(composer).to be_opened
   end

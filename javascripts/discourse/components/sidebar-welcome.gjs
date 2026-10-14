@@ -1,34 +1,19 @@
 import Component from "@glimmer/component";
-import { action } from "@ember/object";
 import { service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
-import DButton from "discourse/components/d-button";
 import basePath from "discourse/helpers/base-path";
-import Composer from "discourse/models/composer";
-import { and } from "discourse/truth-helpers";
 import { i18n } from "discourse-i18n";
+import CreateTopicButton from "./create-topic-button";
 import SidebarLatestTopics from "./sidebar-latest-topics";
 
 export default class SidebarWelcome extends Component {
   @service router;
-  @service composer;
   @service siteSettings;
-  @service currentUser;
 
   get isTopRoute() {
     const { currentRoute } = this.router;
     const topMenuRoutes = this.siteSettings.top_menu.split("|").filter(Boolean);
     return topMenuRoutes.includes(currentRoute.localName);
-  }
-
-  @action
-  customCreateTopic() {
-    this.composer.open({
-      action: Composer.CREATE_TOPIC,
-      draftKey: Composer.NEW_TOPIC_KEY,
-      categoryId: this.args.category?.id,
-      tags: this.args.tag?.name,
-    });
   }
 
   <template>
@@ -40,14 +25,7 @@ export default class SidebarWelcome extends Component {
             (i18n (themePrefix "top_route_description") basePath=(basePath))
           }}
         </p>
-        {{#if (and this.currentUser this.currentUser.can_create_topic)}}
-          <DButton
-            class="btn-primary"
-            @id="custom-create-topic"
-            @action={{this.customCreateTopic}}
-            @label="topic.create"
-          />
-        {{/if}}
+        <CreateTopicButton class="btn-primary" />
       </div>
       <SidebarLatestTopics />
     {{/if}}
