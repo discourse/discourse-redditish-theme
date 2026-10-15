@@ -1,0 +1,240 @@
+@use "lib/viewport";
+
+@include viewport.until(sm) {
+  #main-outlet-wrapper {
+    gap: 0 !important; // core sets a gap on #main-outlet-wrapper at every width
+  }
+
+  #main-outlet,
+  .topic-list .topic-excerpt,
+  .navigation-toggle,
+  .navigation-toggle .toggle-link {
+    width: 100%;
+  }
+
+  .navigation-toggle .toggle-link {
+    justify-content: center;
+  }
+
+  .custom-post-bar {
+    display: none;
+  }
+
+  .custom-topic-layout {
+    h2 {
+      line-height: 1.2;
+
+      a {
+        color: var(--primary);
+      }
+    }
+
+    .link-bottom-line {
+      margin-top: 0.25em;
+    }
+  }
+
+  body.tags-page,
+  body.category,
+  .navigation-topics,
+  .categories-list {
+    .navigation-controls {
+      right: 1.25em;
+      bottom: 1em;
+      top: unset;
+
+      .bulk-select {
+        display: none;
+      }
+
+      #create-topic {
+        display: flex;
+        background: var(--tertiary);
+        color: var(--secondary);
+        box-shadow: var(--shadow-card);
+
+        .d-icon {
+          color: var(--secondary);
+        }
+      }
+    }
+  }
+
+  #topic-title,
+  .posts-wrapper,
+  .topic-list-bottom .footer-message,
+  .search-container .search-advanced .search-info,
+  .search-container .search-advanced .search-results,
+  .search-container .search-header {
+    padding: 1em 1.5em;
+  }
+
+  .posts-wrapper {
+    padding-bottom: 1.5em;
+  }
+
+  .topic-owner {
+    &.topic-post article {
+      border: none;
+    }
+  }
+
+  .navigation-categories #main-outlet .list-controls {
+    display: block;
+  }
+
+  .list-controls .nav-pills .drop {
+    right: 0;
+    width: unset;
+    box-shadow: var(--shadow-dropdown);
+  }
+
+  .nav-pills > li > a:hover,
+  .nav-pills > li button:hover {
+    background: transparent;
+    color: var(--primary);
+  }
+
+  .custom-tag-banner,
+  .custom-category-banner {
+    width: calc(100% + 1.5em);
+    margin-left: -0.75em;
+  }
+
+  .topic-list-bottom {
+    margin-top: 1em;
+  }
+
+  .user-content {
+    padding: 0;
+  }
+
+  .user-menu.revamped .tabs-list .btn {
+    padding: 1em 1.4em;
+  }
+
+  .d-header-icons .icon {
+    margin-left: 0;
+    padding: 0 !important; // overrides the !important in header.scss
+  }
+
+  .body-page .nav-pills {
+    font-size: var(--font-down-1);
+  }
+
+  #topic-footer-buttons {
+    margin-bottom: calc(env(safe-area-inset-bottom) + 1em);
+
+    .topic-notifications-button .reason,
+    .pinned-button .reason {
+      .select-kit {
+        .selected-name .name {
+          display: none;
+        }
+      }
+
+      .text {
+        margin: 0.5em 0 0 0;
+      }
+    }
+
+    &.docked {
+      margin-top: 0.5em;
+    }
+  }
+
+  .timeline-footer-controls,
+  .topic-admin-menu-button {
+    button,
+    .topic-notifications-button summary {
+      height: unset;
+    }
+  }
+
+  html:not(.footer-nav-visible) #topic-progress-wrapper {
+    bottom: calc(env(safe-area-inset-bottom) + 1em);
+  }
+
+  #topic-progress {
+    --d-border-radius: 100px;
+    margin-right: 0.5em;
+    margin-left: 0;
+    border-radius: 100px;
+    border: 1px solid var(--primary-low-mid);
+    overflow: hidden;
+
+    .nums {
+      top: 0.5em;
+    }
+  }
+
+  #topic-progress-wrapper {
+    margin-bottom: 1em;
+
+    #topic-progress .nums {
+      position: static;
+    }
+  }
+
+  .container.posts
+    #topic-progress-wrapper
+    .topic-admin-menu-button
+    .toggle-admin-menu {
+    border-right: none;
+    border-radius: 100px 0 0 100px;
+  }
+
+  .category-boxes,
+  .category-boxes-with-topics {
+    margin-top: 0;
+  }
+
+  #reply-control {
+    .reply-to {
+      margin: 0.5em 0;
+      font-size: var(--font-down-1);
+    }
+
+    .reply-area {
+      padding: 0 0.5em 0.5em;
+    }
+
+    .grippie {
+      display: none;
+    }
+
+    .submit-panel {
+      margin-bottom: 0.25em;
+      margin-top: 0.33em;
+    }
+
+    .composer-actions {
+      .select-kit-body {
+        font-size: var(--font-up-1);
+      }
+    }
+
+    &.closed {
+      border: none;
+    }
+  }
+
+  .alert.alert-info.clickable {
+    position: absolute;
+    right: 0;
+    left: 0;
+  }
+
+  .topic-list-bottom .top-title-buttons {
+    margin-top: 1em;
+    font-size: var(--font-down-2);
+  }
+
+  .custom-topic-layout_meta-posted-by {
+    display: none;
+  }
+
+  #navigation-bar {
+    justify-content: center;
+  }
+}

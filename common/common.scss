@@ -100,15 +100,11 @@ body {
         "sidebar category-banner category-banner category-banner category-banner category-banner"
         "sidebar lspace content sidebar2 rspace sidebar-spacer";
 
+      // columns and hiding the right sidebar come from the block above
       @media screen and (width <= 1160px) {
         grid-template-areas:
           "sidebar category-banner category-banner category-banner category-banner"
           "sidebar lspace content rspace sidebar-spacer";
-        grid-template-columns: auto 1fr minmax(0, 640px) 1fr auto;
-
-        .custom-right-sidebar {
-          display: none;
-        }
       }
     }
   }
@@ -172,7 +168,7 @@ body {
 
 .sidebar-section-link-wrapper button {
   border-radius: 0;
-  padding: 0 var(--d-sidebar-row-horizontal-padding) !important; // overrides button specificity
+  padding: 0 var(--d-sidebar-row-horizontal-padding);
 }
 
 .add-to-sidebar {
@@ -216,3 +212,6 @@ html.composer-open #main-outlet {
 .fc-view-harness {
   background: var(--secondary);
 }
+
+// keep this last so it wins ties, like the separate mobile stylesheet it replaces
+@import "mobile";

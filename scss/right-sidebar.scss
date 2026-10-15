@@ -97,8 +97,6 @@
     }
 
     h2 {
-      margin: 0.25em 0 !important; // overriding another override
-
       a {
         color: var(--primary);
       }
@@ -113,7 +111,7 @@
     }
 
     .custom-topic-layout {
-      border: none !important; // overriding specific selector from mixin
+      border: none !important; // beats the mixin's :hover border
       border-radius: 0;
       padding: 1em 0;
 
